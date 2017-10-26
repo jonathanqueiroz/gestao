@@ -8,7 +8,7 @@
 		    <script>
 		      $(document).foundation();
 		    </script>	
-                <title>CodeIgniter Tutorial</title>
+                <title>Gestão de Projetos</title>
         </head>
         <body>
 			<div class="grid-x toolbar_">

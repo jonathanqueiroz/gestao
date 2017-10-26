@@ -1,0 +1,29 @@
+.toolbar_ {
+	background-color: green;
+	color: white;
+	padding-left: 5px;
+}
+
+.toolbar_ a {
+	color: white;
+}
+
+.menu_toolbar {
+	padding-top: 15px;
+}
+
+.toolbar_ a:hover {
+	color: lightgrey;
+}
+
+.conteudo{
+	min-height: 500px;
+	padding-top: 50px;
+}
+
+.footer_{
+	min-height: 80px;
+	background-color: green;
+	text-align: center;
+	color: white;
+}

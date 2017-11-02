@@ -1,29 +1,192 @@
 .toolbar_ {
-	background-color: green;
-	color: white;
-	padding-left: 5px;
+	background-color: #4caf50;
+	background-color: black;
+	color: #4caf50;
+	padding-left: 7px;
+	box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+
+.menu_toolbar a:hover, a:focus, a:active {
+    color: #4caf50;
+    text-decoration: none;
+}
+.menu_toolbar a {
+    text-decoration: none;
+    transition: color 0.1s, background-color 0.1s;
+}
+.menu_toolbar a {
+    position: relative;
+    display: block;
+    padding: 10px 0;
+    margin: 0 5px;
+    letter-spacing: 1px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: color 0.1s,background-color 0.1s,padding 0.2s ease-in;
+    color: #000;
+}
+.menu_toolbar a::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background-color: #4caf50;
+    transform-origin: right top;
+    transform: scale(0, 1);
+    transition: color 0.1s,transform 0.2s ease-out;
+}
+.menu_toolbar a:active::before {
+    background-color: #4caf50;
+}
+.menu_toolbar a:hover::before, a:focus::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+
+
+.menu_toolbar ol, ul {
+    list-style: none;
+}
+.menu_toolbar li {
+    display: inline-block;
+    padding: 20px 10px 10px;
+    vertical-align: middle;
 }
 
 .toolbar_ a {
 	color: white;
+	text-transform: uppercase;
 }
 
-.menu_toolbar {
+.menu_toolbar p{
 	padding-top: 15px;
+	padding-left: 85px;
 }
 
 .toolbar_ a:hover {
-	color: lightgrey;
+	color: #43a047;
+}
+
+.line {
+	height: 12px;
+	background-color: #4caf50;
+	
 }
 
 .conteudo{
-	min-height: 500px;
-	padding-top: 50px;
+	min-height: calc(100vh - 50px);
+	padding-top: 30px;
 }
 
 .footer_{
-	min-height: 80px;
-	background-color: green;
+	height: 80px;
+	background-color: #4caf50;
 	text-align: center;
 	color: white;
+}
+
+.login_box {
+	width: 400px;
+	border-style: 1px solid black;	
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4caf50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,
+.form button:active,
+.form button:focus {
+  background: #43a047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4caf50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+
+body {
+  background-color: rgb(230, 230, 230);
+  color: #43a047;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.login-text {
+	color: #43a047;
+	text-transform: uppercase;
+}
+
+label {
+	color: #43a047;
+	text-transform: uppercase;
+}
+
+.form_box {
+	background-color: white;
+}
+
+.form_cadastro input, textarea{
+	border: 0;
+}
+
+.form_cadastro input:focus, textarea:focus{
+    box-shadow: 0 0 5px #43a047;
+}
+
+textarea{
+	resize: none;
 }

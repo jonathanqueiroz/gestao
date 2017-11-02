@@ -12,19 +12,20 @@
         </head>
         <body>
 			<div class="grid-x toolbar_">
-                <div class="large-9 cell"><h2>Gestão</h2></div>
+                <div class="large-8 cell"><h2>Gestão</h2></div>
                 <?php if (!isset($_SESSION['usuario'])) 
                 { ?>
-            		<div class="large-3 cell menu_toolbar">
-            			<p><a href="<?php echo site_url('projeto'); ?>">Home</a> | <a href="<?php echo site_url('pessoa'); ?>">Pessoas</a> | <a href="<?php echo site_url('projeto/create'); ?>">Add Projeto</a> | <a href="<?php echo site_url('usuario'); ?>">Login</a></p>
+            		<div class="large-4 cell menu_toolbar">
+            			<ul><li><a href="<?php echo site_url('projeto'); ?>">Home</a></li><li><a href="<?php echo site_url('pessoa'); ?>">Pessoas</a></li><li><a href="<?php echo site_url('projeto/create'); ?>">Add Projeto</a></li><li><a href="<?php echo site_url('usuario'); ?>">Login</a></li></ul>
             		</div>
 				<?php }
 				else { ?>
 					<div class="large-3 cell menu_toolbar">
-            			<p><a href="<?php echo site_url('projeto'); ?>">Home</a> | <a href="<?php echo site_url('pessoa'); ?>">Pessoas</a> | <a href="<?php echo site_url('projeto/create'); ?>">Add Projeto</a> | <a href="<?php echo site_url('usuario/logoff'); ?>">Logoff</a></p>
+                        <ul><li><a href="<?php echo site_url('projeto'); ?>">Home</a></li><li><a href="<?php echo site_url('pessoa'); ?>">Pessoas</a></li><li><a href="<?php echo site_url('projeto/create'); ?>">Add Projeto</a></li><a href="<?php echo site_url('usuario/logoff'); ?>">Logoff</a></li></ul>
             		</div>
 				<?php } ?>
-            </div>   
+            </div>
+            
             <div class="grid-container conteudo">
             
 

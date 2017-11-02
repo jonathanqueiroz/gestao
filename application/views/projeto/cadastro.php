@@ -1,16 +1,18 @@
-<h2><?php echo $title; ?></h2>
- 
-<?php echo validation_errors(); ?>
+ <?php echo validation_errors(); ?>
 <?php if (isset($error)) {
     echo $error;
     } ?>
  
 <?php echo form_open_multipart(base_url('projeto/create')); ?>  
 
-    <div class="grid-x grid-padding-x">
+    <div class="grid-x grid-padding-x form_cadastro form_box">
+        <div class="small-12 cell">
+            <h2 style="text-align: center;"><?php echo $title; ?></h2>
+            <br>
+        </div>
         <div class="small-6 cell">
-            <label for="titulo" class="">Titulo:</label>
-            <input type="text" name="titulo" required="required" />
+            <label for="titulo">Título:</label>
+            <input type="text" name="titulo" required="required" placeholder="Titulo" />
         </div>
         <br><br>
         <div class="small-6 cell">

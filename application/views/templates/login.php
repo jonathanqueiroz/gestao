@@ -1,24 +1,11 @@
-<form action="<?php echo base_url('usuario/login'); ?>" method="post">
-	<div class="grid-container">
-		<div class="grid-x grid-margin-x">
-			<div class="medium-6 large-4 large-offset-4 cell">
-				<label for="login">Email:
-					<input type="email" name="login" required="required">
-				</label>
-				</div>
-			</div>
-			<br>
-			<div class="grid-x grid-margin-x">
-				<div class="medium-6 large-4 large-offset-4 cell">
-					<label for="senha">Senha: 
-						<input type="password" name="senha" required="required"></label>
-				</div>
-			</div>
-			<br>
-			<div class="grid-x grid-margin-x">
-				<div class="medium-6 large-4 large-offset-4 cell cell">
-					<input type="submit" value="Entrar">
-				</div>
-			</div>
-	</div>
-</form>
+<div class="login-page">
+  <div class="form">
+    <form class="login-form" action="<?php echo base_url('usuario/login'); ?>" method="post">
+      <h3 class="login-text">Login</h3>
+      <input type="text" placeholder="Email" focus/>
+      <input type="password" placeholder="Senha"/>
+      <button>Entrar</button>
+      <p class="message">Esqueceu a senha? <a href="#">Clique aqui.</a></p>
+    </form>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 .toolbar_ {
 	background-color: #4caf50;
 	background-color: black;
-	color: #4caf50;
+	color: white;
 	padding-left: 7px;
 	box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
@@ -74,23 +74,14 @@
 	color: #43a047;
 }
 
-.line {
-	height: 12px;
-	background-color: #4caf50;
-	
-}
+
 
 .conteudo{
 	min-height: calc(100vh - 50px);
 	padding-top: 30px;
 }
 
-.footer_{
-	height: 80px;
-	background-color: #4caf50;
-	text-align: center;
-	color: white;
-}
+
 
 .login_box {
 	width: 400px;
@@ -129,7 +120,7 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4caf50;
+  background: rgb(0,0,102);
   width: 100%;
   border: 0;
   padding: 15px;
@@ -142,16 +133,17 @@
 .form button:hover,
 .form button:active,
 .form button:focus {
-  background: #43a047;
+  background: rgb(0,0,80);
 }
+
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: rgb(0,0,102);
   font-size: 12px;
 }
 .form .message a {
-  color: #4caf50;
-  text-decoration: none;
+  color: rgb(0,0,102);
+  text-decoration: underline;
 }
 .form .register-form {
   display: none;
@@ -159,19 +151,19 @@
 
 body {
   background-color: rgb(230, 230, 230);
-  color: #43a047;
+  color: rgb(0,0,102);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .login-text {
-	color: #43a047;
+	color: rgb(0,0,102);
 	text-transform: uppercase;
 }
 
 label {
-	color: #43a047;
+	color: rgb(0,0,102);
 	text-transform: uppercase;
 }
 
@@ -184,9 +176,19 @@ label {
 }
 
 .form_cadastro input:focus, textarea:focus{
-    box-shadow: 0 0 5px #43a047;
+    box-shadow: 0 0 5px rgb(0,0,102);
 }
 
 textarea{
 	resize: none;
+}
+
+.marginX{
+  margin-right: 10px;
+}
+
+.label_radio{
+  float: left;
+  padding: 0 1em;
+  text-align: center;
 }

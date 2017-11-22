@@ -116,4 +116,14 @@ class Pessoa extends CI_Controller {
     }
 
 
+    public function prontuario()
+    {
+        $data['pessoas'] = $this->pessoa_model->get_pessoas();
+        $data['title'] = 'Pessoas';
+ 
+        $this->load->view('templates/header', $data);
+        $this->load->view('projeto/prontuario', $data);
+        $this->load->view('templates/footer');
+    }
+
 }

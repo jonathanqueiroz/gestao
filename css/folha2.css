@@ -1,0 +1,59 @@
+.teste ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(0,0,102);
+}
+
+.teste li {
+    float: left;
+}
+
+.teste li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+}
+
+.teste li a:hover {
+    background-color: rgb(56,56,140);
+    color: white;
+}
+
+.footer_{
+    height: 50px;
+    background-color: rgb(0,0,102);
+    color: white;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.toolbar2_ {
+    background-color: rgb(0,0,102);
+    color: white;
+    text-transform: uppercase;  
+}
+
+.toolbar2_ img{
+    padding-top: 3px;
+    padding-bottom: 4px;
+    height: 63px;
+}
+
+.line {
+    height: 10px;
+    background-color: rgb(250,206,11);  
+}
+
+.color_button{
+    background-color: rgb(0,0,102);
+}
+
+.color_button:hover,
+.color_button:active,
+.color_button:focus {
+  background: rgb(0,0,80);
+}

@@ -61,7 +61,7 @@
         </div>
         <br><br>
         <div class="small-6 cell">
-            <input type="submit" name="submit" value="Cadastrar"  class="button large" />
+            <input type="submit" name="submit" value="Cadastrar"  class="button large color_button" />
         </div>
     </div>   
 </form>

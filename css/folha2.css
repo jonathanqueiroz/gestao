@@ -57,3 +57,17 @@
 .color_button:focus {
   background: rgb(0,0,80);
 }
+
+.titulo {
+    vertical-align: center;
+}
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }

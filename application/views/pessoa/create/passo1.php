@@ -3,8 +3,7 @@
     $('select').material_select();
   });
 </script>
-
-<?php echo form_open('Pessoa/stepOne'); ?>
+<?php echo form_open('Pessoa/dados_adolescente'); ?>
 	<h2>Cadastro Pessoa</h2>
 	<?php echo validation_errors(); ?>
 	<div class="row passo1 form_cadastro form_box">
@@ -94,7 +93,7 @@
 			<div class="col s12 "></div>
 			<div class="col l12 s12">
 			<br>
-			<button class="btn waves-effect waves-light" type="submit" name="action">Salvar</button>
+			<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar</button>
 			<br><br>
 		</div>
 			<br>

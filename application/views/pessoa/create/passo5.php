@@ -3,11 +3,12 @@
     $('select').material_select();
   });
 </script>
-<?php echo form_open('Pessoa/stepFive'); ?>
+<?php echo form_open('Pessoa/vida_social/'.$id); ?>
 <div class="form_cadastro form_box">
 	<br>
 	<div class="row">
 		<div class="col s12 l12"><h4>Vida Social e Hábitos</h4><br></div>
+		<input type="hidden" name="id" value="<?php echo $id; ?>" />
 		<div class="col s12 l12 ">1. Vida Social: <br></div>
 		<div class="col s12 l2  " >
 			<br>
@@ -114,9 +115,9 @@
 		<div class="col s12 l2  " >
 			<br>
 			<label class="texto" for="dirige">2.5 Dirige Veículos</label class="texto">
-			<p><input class="with-gap" name="namorado" type="radio" value="Sim"  id="r21" />
+			<p><input class="with-gap" name="dirige" type="radio" value="Sim"  id="r21" />
 			<label for="r21">Sim</label></p>
-			<p><input class="with-gap" name="namorado" type="radio" value="Não"  id="r22" />
+			<p><input class="with-gap" name="dirige" type="radio" value="Não"  id="r22" />
 			<label for="r22">Não</label></p>  
 		</div>
 		<div class="col s12 l12"><br></div>
@@ -142,7 +143,7 @@
 			<textarea class="materialize-textarea" name="outras_substancias" id="" cols="30" rows="3" placeholder="Descreva quais utiliza, ou deixe em branco caso não." required="required"></textarea>
 		</div>
 		<div class="col l12 s12">
-			<button class="btn waves-effect waves-light" type="submit" name="action">Salvar</button>
+			<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar</button>
 			<br><br>
 		</div>
 	</div>

@@ -3,11 +3,12 @@
     $('select').material_select();
   });
 </script>
-<?php echo form_open('Pessoa/stepSix'); ?>
+<?php echo form_open('Pessoa/ginegologico_sexualidade/'.$id); ?>
 <div class="form_cadastro form_box">
 	<br>
 	<div class="row">
 		<div class="col s12 l12"><h4>Gineco-Urologico e Sexualidade</h4><br></div>
+		<input type="hidden" name="id" value="<?php echo $id; ?>" />
 		<div class="col s12 l12 ">1. Gineco-Urologico: <br></div>
 		<div class="col s12 l3  " >
 			<br>
@@ -43,11 +44,11 @@
 		<div class="col s12 l3  " >
 			<br>
 			<label class="texto" for="patologico_secrecao">1.5 Fluxo Patológico / Secreção Peniana </label>
-			<p><input class="with-gap" name="dismonorreia" type="radio" value="Sim" id="r7" required />
+			<p><input class="with-gap" name="patologico_secrecao" type="radio" value="Sim" id="r7" required />
 			<label for="r7">Sim</label></p>
-			<p><input class="with-gap" name="dismonorreia" type="radio" value="Não"  id="r8" />
+			<p><input class="with-gap" name="patologico_secrecao" type="radio" value="Não"  id="r8" />
 			<label for="r8">Não</label></p>  
-			<p><input class="with-gap" name="dismonorreia" type="radio" value="Não Corresponde"  id="r9" />
+			<p><input class="with-gap" name="patologico_secrecao" type="radio" value="Não Corresponde"  id="r9" />
 			<label for="r9">Não Corresponde </label></p> 
 		</div>
 		<div class="col s12 l12"><br></div>
@@ -92,19 +93,19 @@
 		<div class="col s12 l3  " >
 			<br>
 			<label class="texto" for="informacao">2.2 Necessita Informação </label>
-			<p><input class="with-gap" name="dismonorreia" type="radio" value="Sim" id="r10" required />
+			<p><input class="with-gap" name="informacao" type="radio" value="Sim" id="r10" required />
 			<label for="r10">Sim</label></p>
-			<p><input class="with-gap" name="dismonorreia" type="radio" value="Não"  id="r11" />
+			<p><input class="with-gap" name="informacao" type="radio" value="Não"  id="r11" />
 			<label for="r11">Não</label></p>
 		</div>
 				<div class="col s12 l3  " >
 			<br>
 			<label class="texto" for="problema_sexuais">2.3 Problemas nas Relações Sexuais</label>
-			<p><input class="with-gap" name="dismonorreia" type="radio" value="Sim" id="r14" required />
+			<p><input class="with-gap" name="problema_sexuais" type="radio" value="Sim" id="r14" required />
 			<label for="r14">Sim</label></p>
-			<p><input class="with-gap" name="dismonorreia" type="radio" value="Não"  id="r15" />
+			<p><input class="with-gap" name="problema_sexuais" type="radio" value="Não"  id="r15" />
 			<label for="r15">Não</label></p>  
-			<p><input class="with-gap" name="dismonorreia" type="radio" value="Não Corresponde"  id="r16" />
+			<p><input class="with-gap" name="problema_sexuais" type="radio" value="Não Corresponde"  id="r16" />
 			<label for="r16">Não Corresponde </label></p>  
 		</div>
 		<div class="col s12 l3  " >
@@ -148,7 +149,7 @@
 		</div>
 		<div class="col l12 s12">
 			<br>
-			<button class="btn waves-effect waves-light" type="submit" name="action">Salvar</button>
+			<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar</button>
 			<br><br>
 		</div>
 	</div>

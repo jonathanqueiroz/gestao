@@ -4,6 +4,8 @@ class Pessoa_model extends CI_Model {
     public function __construct()
     {
         $this->load->database();
+        $this->load->helper('url_helper');
+        $this->load->helper('url'); 
     }
     
     public function get_pessoas($id = FALSE)
@@ -99,7 +101,7 @@ class Pessoa_model extends CI_Model {
     }
 
 
-    public function setPessoa_step1($id=0)
+    public function setPessoa_step1($id=0,$id_pessoa=0)
     {
          $this->load->helper('url');
          date_default_timezone_set('America/Bahia');
@@ -129,14 +131,14 @@ class Pessoa_model extends CI_Model {
             return $fk_pessoa;
         } 
         else {
-            $this->db->where('id_pessoa', $id);
+            $this->db->where('id_pessoa', $id_pessoa);
             $this->db->update('cadastroAdolescenteOne', $data);
         }
     }
 
     public function setPessoa_step2($id=0, $fk_pessoa=0)
     {
-         $this->load->helper('url'); 
+        $this->load->helper('url'); 
 
         $data = array(
             'fk_pessoa' => $fk_pessoa,
@@ -172,15 +174,11 @@ class Pessoa_model extends CI_Model {
             'outros_familiar' => $this->input->post('outros_familiar'),
             'obs_familiar' => $this->input->post('obs_familiar')
         );
-        
         if ($id == 0) {
-
             $this->db->insert('cadastroAdolescente2', $data);
-            //Resolver ID retornado
-            
         } 
         else {
-            $this->db->where('fk_pessoa', $id);
+            $this->db->where('fk_pessoa', $fk_pessoa);
             $this->db->update('cadastroAdolescente2', $data);
         }
     }
@@ -230,7 +228,7 @@ class Pessoa_model extends CI_Model {
             
         } 
         else {
-            $this->db->where('fk_pessoa', $id);
+            $this->db->where('fk_pessoa', $fk_pessoa);
             $this->db->update('cadastroAdolescente3', $data);
         }
     }
@@ -266,7 +264,7 @@ class Pessoa_model extends CI_Model {
             
         } 
         else {
-            $this->db->where('fk_pessoa', $id);
+            $this->db->where('fk_pessoa', $fk_pessoa);
             $this->db->update('cadastroAdolescente4', $data);
         }
     }
@@ -303,7 +301,7 @@ class Pessoa_model extends CI_Model {
             
         } 
         else {
-            $this->db->where('fk_pessoa', $id);
+            $this->db->where('fk_pessoa', $fk_pessoa);
             $this->db->update('cadastroAdolescente5', $data);
         }
     }
@@ -340,15 +338,14 @@ class Pessoa_model extends CI_Model {
             
         } 
         else {
-            $this->db->where('fk_pessoa', $id);
+            $this->db->where('fk_pessoa', $fk_pessoa);
             $this->db->update('cadastroAdolescente6', $data);
         }
     }
 
         public function setPessoa_step7($id=0, $fk_pessoa=0)
     {
-         $this->load->helper('url'); 
-
+        $this->load->helper('url'); 
         $data = array(
             'fk_pessoa' => $fk_pessoa,
             'imagem_corporal' => $this->input->post('imagem_corporal'),
@@ -385,7 +382,7 @@ class Pessoa_model extends CI_Model {
             
         } 
         else {
-            $this->db->where('fk_pessoa', $id);
+            $this->db->where('fk_pessoa', $fk_pessoa);
             $this->db->update('cadastroAdolescente7', $data);
         }
     }
@@ -394,6 +391,55 @@ class Pessoa_model extends CI_Model {
     {
         $query = $this->db->get('cadastroAdolescenteOne');
         return $query->result_array();
+    }
+
+    public function getForm1($id)
+    {
+        $this->db->where('id_pessoa', $id);
+        $query = $this->db->get('cadastroAdolescenteOne');
+        return $query->row();
+    }
+
+    public function getForm2($id)
+    {
+        $this->db->where('fk_pessoa', $id);
+        $query = $this->db->get('cadastroAdolescente2');
+        return $query->row();
+    }
+
+    public function getForm3($id)
+    {
+        $this->db->where('fk_pessoa', $id);
+        $query = $this->db->get('cadastroAdolescente3');
+        return $query->row();
+    }
+
+    public function getForm4($id)
+    {
+        $this->db->where('fk_pessoa', $id);
+        $query = $this->db->get('cadastroAdolescente4');
+        return $query->row();
+    }
+
+    public function getForm5($id)
+    {
+        $this->db->where('fk_pessoa', $id);
+        $query = $this->db->get('cadastroAdolescente5');
+        return $query->row();
+    }
+
+    public function getForm6($id)
+    {
+        $this->db->where('fk_pessoa', $id);
+        $query = $this->db->get('cadastroAdolescente6');
+        return $query->row();
+    }
+
+    public function getForm7($id)
+    {
+        $this->db->where('fk_pessoa', $id);
+        $query = $this->db->get('cadastroAdolescente7');
+        return $query->row();
     }
 
 }

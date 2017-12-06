@@ -3,12 +3,13 @@
     $('select').material_select();
   });
 </script>
-<?php echo form_open('Pessoa/stepThree'); ?>
+<?php echo form_open('Pessoa/situacao_familiar/'.$id); ?>
 <?php echo validation_errors(); ?>
 <div class="form_cadastro form_box">
 	<br>
 	<div class="row">
 		<div class="col s12 l12"><h4>Situação Familiar</h4><br></div>
+		<input type="hidden" name="id" value="<?php echo $id; ?>" />
 		<div class="col l12 texto">1. Convive com: <br><br></div>
 		<div class="col l2 s12" >
 			<label class="texto" for="convive_pai">1.1 Mãe </label>
@@ -285,7 +286,7 @@
 			<br><br>
 		</div>
 		<div class="col l12 s12">
-			<button class="btn waves-effect waves-light" type="submit" name="action">Salvar</button>
+			<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar</button>
 			<br><br>
 		</div>
 	</div>

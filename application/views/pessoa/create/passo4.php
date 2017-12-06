@@ -3,11 +3,12 @@
     $('select').material_select();
   });
 </script>
-<?php echo form_open('Pessoa/stepFour'); ?>
+<?php echo form_open('Pessoa/educacao_emprego/'.$id); ?>
 <div class="form_cadastro form_box">
 	<br>
 	<div class="row">
 		<div class="col s12 l12"><h4>Educação e Trabalho</h4><br></div>
+		<input type="hidden" name="id" value="<?php echo $id; ?>" />
 		<div class="col s12 l12">1. Educação: <br></div>
 		<div class="col s12 l3 " >
 			<br>
@@ -141,7 +142,7 @@
 			<textarea class="materialize-textarea" name="tipo_trabalho" id="" cols="30" rows="4" placeholder="Descreva a atividade caso exista, ou deixe em branco caso não." required="required"></textarea>
 		</div>
 		<div class="col l12 s12">
-			<button class="btn waves-effect waves-light" type="submit" name="action">Salvar</button>
+			<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar</button>
 			<br><br>
 		</div>
 	</div>

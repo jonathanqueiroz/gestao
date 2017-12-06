@@ -1,9 +1,10 @@
-<?php echo form_open('Pessoa/stepTwo'); ?>
+<?php echo form_open('Pessoa/antecedentes/'.$id); ?>
 	<div class="form_cadastro form_box">
 		<?php echo validation_errors(); ?>
 		<br>
 		<div class="row">
 			<div class="col s12"><br><h4>1. Consulta Principal</h4></div>
+			<input type="hidden" name="id" value="<?php echo $id; ?>" />
 			<div class="col s5  " style="margin-right: 10px">
 				<label class="texto" for="motivo_adolescente">1.1 Motivos da Consulta (Segundo o Adolescente):</label>
 				<textarea class="materialize-textarea" name="motivo_adolescente" cols="30" rows="3" placeholder="Motivos da Consulta (Segundo o Adolescente)" required="required"></textarea> 
@@ -291,7 +292,7 @@
 				<br> 
 			</div>
 			<div class="col s12 ">
-				 <button class="btn waves-effect waves-light" type="submit" name="action">Salvar</button>
+				 <button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar</button>
 				<br><br>
 			</div>
 		</div>

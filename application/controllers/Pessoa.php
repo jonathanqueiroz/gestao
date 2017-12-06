@@ -7,6 +7,7 @@ class Pessoa extends CI_Controller {
         $this->load->library('session');
         $this->load->model('pessoa_model');
         $this->load->helper('url_helper');
+        $this->load->helper('url'); 
         $this->load->helper('form');
         $this->load->library('form_validation');
     }
@@ -112,20 +113,31 @@ class Pessoa extends CI_Controller {
     }
 
 
-    public function prontuario($id=1)
+    public function cadastrar_adolescente($id=0)
     {
-        $data['pessoas'] = $this->pessoa_model->get_pessoas();
-        $data['title'] = 'Pessoas';
- 
+        $data['id'] = $id;
+        if ($id != 0) {
+            $data['tab'] = 1;
+        }
+        else{
+            $data['tab'] = 0;
+        }
+        $data['form1'] = $this->pessoa_model->getForm1($id);
+        $data['form2'] = $this->pessoa_model->getForm2($id);
+        $data['form3'] = $this->pessoa_model->getForm3($id);
+        $data['form4'] = $this->pessoa_model->getForm4($id);
+        $data['form5'] = $this->pessoa_model->getForm5($id);
+        $data['form6'] = $this->pessoa_model->getForm6($id);
+        $data['form7'] = $this->pessoa_model->getForm7($id);
         $this->load->view('templates/header', $data);
-        $this->load->view('projeto/passo5', $data);
+        $this->load->view('projeto/tabs_create');
         $this->load->view('templates/footer');
     }
 
-    public function stepOne($id=0)
+
+    public function dados_adolescente($id=0)
     {
         $data['title'] = 'Cadastrar Pessoa';
-
         $this->form_validation->set_rules('nome', 'Nome', 'required');
         $this->form_validation->set_rules('rg', 'RG', 'required');
         $this->form_validation->set_rules('telefone', 'Telefone', 'required');
@@ -145,26 +157,26 @@ class Pessoa extends CI_Controller {
         if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('templates/header', $data);
-            $this->load->view('projeto/prontuario');
+            $this->load->view('pessoa/create/passo1');
             $this->load->view('templates/footer');
- 
         }
         else
         {
             $id_adolescente = $this->pessoa_model->setPessoa_step1($id);
-            $this->session->set_userdata('id_adolescente', $id_adolescente);
-            //var_dump($this->session->userdata('id_adolescente', $id_adolescente));
-            redirect('Pessoa/stepTwo','auto');
-            /*$this->load->view('templates/header', $data);
-            $this->load->view('pessoa/passo2');
-            $this->load->view('templates/footer');*/
+            redirect('Pessoa/cadastrar_adolescente/'.$id_adolescente,'auto');
         }
     }
 
-    public function stepTwo($id=0)
+    public function antecedentes($id=0)
     {
         $data['title'] = 'Cadastrar Pessoa';
-
+        if ($id != 0) {
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
         $this->form_validation->set_rules('motivo_adolescente', 'Motivo da Consulta (Segundo o Adolescente) ', 'required');
         $this->form_validation->set_rules('motivo_acompanhante', 'Motivos da Consulta (Segundo o Acompanhante)', 'required');
         $this->form_validation->set_rules('cod_adolescente', 'Código(s) Motivo(s) do Adolescente', 'required');
@@ -196,33 +208,28 @@ class Pessoa extends CI_Controller {
         $this->form_validation->set_rules('judiciais_familiar', 'Judiciais Familiar', 'required');
         $this->form_validation->set_rules('outros_familiar', 'Outros Familiar', 'required');
         $this->form_validation->set_rules('obs_familiar', 'Observações Familiar', 'required');
-
-
         if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('templates/header', $data);
-            $this->load->view('projeto/passo2');
+            $this->load->view('pessoa/create/passo2');
             $this->load->view('templates/footer');
- 
         }
-        else
-        {
-            if ($this->session->has_userdata('id_adolescente')) {
-            $fk_pessoa = $this->session->userdata('id_adolescente');
-            }
-            $this->pessoa_model->setPessoa_step2($id, $fk_pessoa);
-            redirect('Pessoa/stepThree','auto');
-            /*$this->load->view('templates/header', $data);
-            $this->load->view('pessoa/sucess');
-            $this->load->view('templates/footer'); */
+        else{
+            $this->pessoa_model->setPessoa_step2('0', $fk_pessoa);
+            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
         }
     }
 
-    public function stepThree($id=0)
+    public function situacao_familiar($id=0)
     {
         $data['title'] = 'Cadastrar Pessoa';
-        
-        
+        if ($id != 0) {
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
         $this->form_validation->set_rules('convive_mae', 'Convive com a Mãe ', 'required');
         $this->form_validation->set_rules('convive_pai', 'Convive com o Pai', 'required');
         $this->form_validation->set_rules('convive_madrasta', 'Convive com a Madrasta', 'required');
@@ -258,127 +265,114 @@ class Pessoa extends CI_Controller {
         if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('templates/header', $data);
-            $this->load->view('projeto/passo3');
+            $this->load->view('pessoa/create/passo3');
             $this->load->view('templates/footer');
- 
         }
         else
         {
-            if ($this->session->has_userdata('id_adolescente')) {
-            $fk_pessoa = $this->session->userdata('id_adolescente');
-            }
-            $this->pessoa_model->setPessoa_step3($id, $fk_pessoa);
-            redirect('Pessoa/stepFour','auto');
-            /*$this->load->view('templates/header', $data);
-            $this->load->view('pessoa/sucess');
-            $this->load->view('templates/footer'); */
+            $this->pessoa_model->setPessoa_step3('0', $fk_pessoa);
+            redirect('Pessoa/educacao_emprego/'.$fk_pessoa,'auto');
         }
     }
 
-    public function stepFour($id=0)
+    public function educacao_emprego($id=0)
     {
         $data['title'] = 'Cadastrar Pessoa';
-        
-        
+        if ($id != 0) {
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
         $this->form_validation->set_rules('estuda', 'Estuda ', 'required');
 
          if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('templates/header', $data);
-            $this->load->view('projeto/passo4');
+            $this->load->view('pessoa/create/passo4');
             $this->load->view('templates/footer');
- 
         }
         else
         {
-            if ($this->session->has_userdata('id_adolescente')) {
-            $fk_pessoa = $this->session->userdata('id_adolescente');
-            }
-            $this->pessoa_model->setPessoa_step4($id, $fk_pessoa);
-            redirect('Pessoa/stepFive','auto');
-            /*
-            $this->load->view('templates/header', $data);
-            $this->load->view('pessoa/sucess');
-            $this->load->view('templates/footer'); */
+            $this->pessoa_model->setPessoa_step4('0', $fk_pessoa);
+            redirect('Pessoa/vida_social/'.$fk_pessoa,'auto');
         }
     }
 
-    public function stepFive($id=0)
+    public function vida_social($id=0)
     {
         $data['title'] = 'Cadastrar Pessoa';
-        
-        
+        if ($id != 0) {
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
         $this->form_validation->set_rules('aceitao', 'Aceitação ', 'required');
 
          if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('templates/header', $data);
-            $this->load->view('projeto/passo5');
+            $this->load->view('pessoa/create/passo5');
             $this->load->view('templates/footer');
  
         }
         else
         {
-            if ($this->session->has_userdata('id_adolescente')) {
-            $fk_pessoa = $this->session->userdata('id_adolescente');
-            }
-            $this->pessoa_model->setPessoa_step5($id, $fk_pessoa);
-            redirect('Pessoa/stepSix','auto');
-            /*
-            $this->load->view('templates/header', $data);
-            $this->load->view('pessoa/sucess');
-            $this->load->view('templates/footer'); */
+            $fk_pessoa = $this->input->post('id');
+            $this->pessoa_model->setPessoa_step5('0', $fk_pessoa);
+            redirect('Pessoa/ginegologico_sexualidade'.$fk_pessoa,'auto');
         }
     }
 
-    public function stepSix($id=0)
+    public function ginegologico_sexualidade($id=0)
     {
         $data['title'] = 'Cadastrar Pessoa';
-        
-        
+        if ($id != 0) {
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
         $this->form_validation->set_rules('menarca_espermarca', 'Idade Menarca / Espermarca', 'required');
 
          if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('templates/header', $data);
-            $this->load->view('projeto/passo6');
+            $this->load->view('pessoa/create/passo6');
             $this->load->view('templates/footer');
- 
         }
         else
         {
-            if ($this->session->has_userdata('id_adolescente')) {
-            $fk_pessoa = $this->session->userdata('id_adolescente');
-            }
-            $this->pessoa_model->setPessoa_step6($id, $fk_pessoa);
-            redirect('Pessoa/stepSeven','auto');
-            /*
-            $this->load->view('templates/header', $data);
-            $this->load->view('pessoa/sucess');
-            $this->load->view('templates/footer'); */
+            $this->pessoa_model->setPessoa_step6('0', $fk_pessoa);
+            redirect('Pessoa/emocional_fisico/'.$fk_pessoa,'auto');
         }
     }
 
-    public function stepSeven($id=0)
+    public function emocional_fisico($id=0)
     {
         $data['title'] = 'Cadastrar Pessoa';
-        
-        
+        if ($id != 0) {
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
         $this->form_validation->set_rules('imagem_corporal', 'Imagem Corporal', 'required');
 
-         if ($this->form_validation->run() === FALSE)
+        if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('templates/header', $data);
-            $this->load->view('projeto/passo7');
+            $this->load->view('pessoa/create/passo7');
             $this->load->view('templates/footer');
- 
         }
         else
         {
-            if ($this->session->has_userdata('id_adolescente')) {
-            $fk_pessoa = $this->session->userdata('id_adolescente');
-            }
-            $this->pessoa_model->setPessoa_step7($id, $fk_pessoa);
+            $this->pessoa_model->setPessoa_step7('0', $fk_pessoa);
             $this->load->view('templates/header', $data);
             $this->load->view('pessoa/sucess');
             $this->load->view('templates/footer');
@@ -393,4 +387,190 @@ class Pessoa extends CI_Controller {
         $this->load->view('templates/footer');
 
     }
+
+    public function edit_dados_adolescente($id=0)
+    {
+        $data['title'] = 'Cadastrar Pessoa';
+        if ($id != 0) {
+            $data['form1'] = $this->pessoa_model->getForm1($id);
+            $data['id'] = $this->uri->segment(3, 0);
+            $id_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
+        $this->form_validation->set_rules('nome', 'Nome', 'required');
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('pessoa/edit/edit1');
+            $this->load->view('templates/footer');
+        }
+        else
+        {
+            $this->pessoa_model->setPessoa_step1('1', $id_pessoa);
+            redirect('Pessoa/cadastrar_adolescente/'.$id_pessoa,'auto');
+            //redirect('Pessoa/edit_antecedentes/'.$id_pessoa,'auto');
+        }
+    }
+
+    public function edit_antecedentes($id=0)
+    {
+        $data['title'] = 'Cadastrar Pessoa';
+        if ($id != 0) {
+            $data['form2'] = $this->pessoa_model->getForm2($id);
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
+        $this->form_validation->set_rules('motivo_adolescente', 'Motivo da Consulta (Segundo o Adolescente) ', 'required');
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('pessoa/edit/edit2');
+            $this->load->view('templates/footer');
+        }
+        else{
+            $this->pessoa_model->setPessoa_step2('1', $fk_pessoa);
+            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            //redirect('Pessoa/edit_situacao_familiar/'.$fk_pessoa,'auto');
+        }
+    }
+
+    public function edit_situacao_familiar($id=0)
+    {
+        $data['title'] = 'Cadastrar Pessoa';
+        if ($id != 0) {
+            $data['form3'] = $this->pessoa_model->getForm3($id);
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
+        $this->form_validation->set_rules('convive_mae', 'Convive com a Mãe ', 'required');
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('pessoa/edit/edit3');
+            $this->load->view('templates/footer');
+        }
+        else{
+            $this->pessoa_model->setPessoa_step3('1', $fk_pessoa);
+            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            //redirect('Pessoa/edit_educacao_emprego/'.$fk_pessoa,'auto');
+        }
+    }
+
+    public function edit_educacao_emprego($id=0)
+    {
+        $data['title'] = 'Cadastrar Pessoa';
+        if ($id != 0) {
+            $data['form4'] = $this->pessoa_model->getForm4($id);
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
+        $this->form_validation->set_rules('estuda', 'Estuda ', 'required');
+
+         if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('pessoa/edit/edit4');
+            $this->load->view('templates/footer');
+        }
+        else
+        {
+            $this->pessoa_model->setPessoa_step4('1', $fk_pessoa);
+            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            //redirect('Pessoa/edit_vida_social/'.$fk_pessoa,'auto');
+        }
+    }
+
+    public function edit_vida_social($id=0)
+    {
+        $data['title'] = 'Cadastrar Pessoa';
+        if ($id != 0) {
+            $data['form5'] = $this->pessoa_model->getForm5($id);
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
+        $this->form_validation->set_rules('aceitao', 'Aceitação ', 'required');
+
+         if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('pessoa/edit/edit5');
+            $this->load->view('templates/footer');
+ 
+        }
+        else
+        {
+            $fk_pessoa = $this->input->post('id');
+            $this->pessoa_model->setPessoa_step5('1', $fk_pessoa);
+            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            //redirect('Pessoa/edit_ginegologico_sexualidade/'.$fk_pessoa,'auto');
+        }
+    }
+
+    public function edit_ginegologico_sexualidade($id=0)
+    {
+        $data['title'] = 'Cadastrar Pessoa';
+        if ($id != 0) {
+            $data['form6'] = $this->pessoa_model->getForm6($id);
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
+        $this->form_validation->set_rules('menarca_espermarca', 'Idade Menarca / Espermarca', 'required');
+
+         if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('pessoa/edit/edit6');
+            $this->load->view('templates/footer');
+        }
+        else
+        {
+            $this->pessoa_model->setPessoa_step6('1', $fk_pessoa);
+            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            //redirect('Pessoa/edit_emocional_fisico/'.$fk_pessoa,'auto');
+        }
+    }
+
+    public function edit_emocional_fisico($id=0)
+    {
+        $data['title'] = 'Cadastrar Pessoa';
+        if ($id != 0) {
+            $data['form7'] = $this->pessoa_model->getForm7($id);
+            $data['id'] = $this->uri->segment(3, 0);
+            $fk_pessoa = $this->input->post('id');
+        }
+        else{
+            show_404();
+        }
+        $this->form_validation->set_rules('imagem_corporal', 'Imagem Corporal', 'required');
+
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('pessoa/edit/edit7');
+            $this->load->view('templates/footer');
+        }
+        else
+        {
+            $this->pessoa_model->setPessoa_step7('1', $fk_pessoa);
+            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+        }
+    }
+
 }

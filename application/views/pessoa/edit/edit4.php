@@ -3,7 +3,8 @@
     $('select').material_select();
   });
 </script>
-<?php echo form_open('Pessoa/edit_educacao_emprego/'.$id); ?>
+<?php echo form_open('Pessoa/edit_educacao_emprego/'.$id); 
+echo validation_errors(); ?>
 <div class="form_cadastro form_box">
 	<br>
 	<div class="row">
@@ -13,34 +14,34 @@
 		<div class="col s12 l3 " >
 			<br>
 			<label class="texto" for="estuda">1.1 Estuda </label class="texto">
-			<p><input class="with-gap" name="estuda" type="radio" value="Sim" id="r1" required <?php if($form4->estuda == 'Sim'){ ?> checked <?php } ?> />
-			<label for="r1">Sim</label></p>
-			<p><input class="with-gap" name="estuda" type="radio" value="Não"  id="r2" <?php if($form4->estuda == 'Não'){ ?> checked <?php } ?> />
-			<label for="r2">Não</label></p> 
+			<p><input class="with-gap" name="estuda" type="radio" value="Sim" id="e4_1" required <?php if($form4->estuda == 'Sim'){ ?> checked <?php } ?> />
+			<label for="e4_1">Sim</label></p>
+			<p><input class="with-gap" name="estuda" type="radio" value="Não"  id="e4_2" <?php if($form4->estuda == 'Não'){ ?> checked <?php } ?> />
+			<label for="e4_2">Não</label></p> 
 		</div>
 		<div class="col s12 l3 " >
 			<br>
 			<label class="texto" for="turno_escola">1.2 Turno</label class="texto">
-			<p><input class="with-gap" name="turno_escola" type="radio" value="Matutino" id="r3" required <?php if($form4->turno_escola == 'Matutino'){ ?> checked <?php } ?> />
-			<label for="r3">Matutino</label></p>
-			<p><input class="with-gap" name="turno_escola" type="radio" value="Vespertino" id="r4" <?php if($form4->turno_escola == 'Vespertino'){ ?> checked <?php } ?> />
-			<label for="r4">Vespertino</label></p> 
-			<p><input class="with-gap" name="turno_escola" type="radio" value="Noturno" id="r5" <?php if($form4->turno_escola == 'Noturno'){ ?> checked <?php } ?> />
-			<label for="r5">Noturno</label></p> 
+			<p><input class="with-gap" name="turno_escola" type="radio" value="Matutino" id="e4_3" required <?php if($form4->turno_escola == 'Matutino'){ ?> checked <?php } ?> />
+			<label for="e4_3">Matutino</label></p>
+			<p><input class="with-gap" name="turno_escola" type="radio" value="Vespertino" id="e4_4" <?php if($form4->turno_escola == 'Vespertino'){ ?> checked <?php } ?> />
+			<label for="e4_4">Vespertino</label></p> 
+			<p><input class="with-gap" name="turno_escola" type="radio" value="Noturno" id="e4_5" <?php if($form4->turno_escola == 'Noturno'){ ?> checked <?php } ?> />
+			<label for="e4_5">Noturno</label></p> 
 		</div>
 		<div class="col s12 l3 " >
 			<br>
 			<label class="texto" for="problemas_escola">1.3 Problemas na Escola </label class="texto">
-			<p><input class="with-gap" name="problemas_escola" type="radio" value="Sim" id="r6" required <?php if($form4->problemas_escola == 'Sim'){ ?> checked <?php } ?> />
-			<label for="r6">Sim</label></p>
-			<p><input class="with-gap" name="problemas_escola" type="radio" value="Não"  id="r7" <?php if($form4->problemas_escola == 'Não'){ ?> checked <?php } ?> />
-			<label for="r7">Não</label></p>
+			<p><input class="with-gap" name="problemas_escola" type="radio" value="Sim" id="e4_6" required <?php if($form4->problemas_escola == 'Sim'){ ?> checked <?php } ?> />
+			<label for="e4_6">Sim</label></p>
+			<p><input class="with-gap" name="problemas_escola" type="radio" value="Não"  id="e4_7" <?php if($form4->problemas_escola == 'Não'){ ?> checked <?php } ?> />
+			<label for="e4_7">Não</label></p>
 		</div>
 		<div class="col s12 l12"><br></div>
 		<div class="col s12 l3 " >
 			<br>
 			<label class="texto" for="nivel">1.4 Nível </label class="texto">
-			<select name="nivel" id="" required="required">
+			<select name="nivel" id="nivel" required="required">
 					<option value="" disabled="disabled" selected="selected">Selecione</option>
 					<option value="Analfabeto" <?php if ($form4->nivel == 'Analfabeto'){ ?> selected="selected" <?php } ?>>Analfabeto</option>
 					<option value="1º Grau Incompleto" <?php if ($form4->nivel == '1º Grau Incompleto'){ ?> selected="selected" <?php } ?> >1º Grau Incompleto</option>
@@ -75,7 +76,7 @@
 		<div class="col s12 l4 " >
 			<br>
 			<label class="texto" for="atividade_trabalho">2.1 Atividade </label class="texto">
-			<select name="atividade_trabalho" id="" required="required">
+			<select name="atividade_trabalho" id="S4_2" required="required">
 					<option value="" disabled="disabled" selected="selected">Selecione</option>
 					<option value="Trabalha" <?php if ($form4->atividade_trabalho == 'Trabalha'){ ?> selected="selected" <?php } ?> >Trabalha</option>
 					<option value="Procurando" <?php if ($form4->atividade_trabalho == 'Procurando'){ ?> selected="selected" <?php } ?> >Procurando</option>
@@ -97,7 +98,7 @@
 		<div class="col s12 l4 " >
 			<br>
 			<label class="texto" for="horario_trabalho">2.4 Horário de Trabalho</label class="texto">
-			<select name="horario_trabalho" id="" required="required">
+			<select name="horario_trabalho" id="S4_3" required="required">
 					<option value="" disabled selected>Selecione</option>
 					<option value="Manhã" <?php if ($form4->horario_trabalho == 'Manhã'){ ?> selected="selected" <?php } ?> >Manhã</option>
 					<option value="Tarde" <?php if ($form4->horario_trabalho == 'Tarde'){ ?> selected="selected" <?php } ?> >Tarde</option>
@@ -109,8 +110,8 @@
 		</div>
 		<div class="col s12 l4 " >
 			<br>
-			<label class="texto" for="razao_trabalho">2.5 Razão do Trabalho </label class="texto">
-			<select name="razao_trabalho" id="" required="required">
+			<label class="texto" for="e4_azao_trabalho">2.5 Razão do Trabalho </label class="texto">
+			<select name="razao_trabalho" id="S4_5" required="required">
 					<option value="" disabled="disabled" selected="selected">Selecione</option>
 					<option value="Econômica" <?php if ($form4->razao_trabalho == 'Econômica'){ ?> selected="selected" <?php } ?> >Econômica</option>
 					<option value="Autonomia" <?php if ($form4->razao_trabalho == 'Autonomia'){ ?> selected="selected" <?php } ?> >Autonomia</option>
@@ -122,18 +123,18 @@
 		<div class="col s12 l3 " >
 			<br>
 			<label class="texto" for="legalizado">2.6 Trabalho Legalizado </label class="texto">
-			<p><input class="with-gap" name="legalizado" type="radio" value="Sim" id="r8" required <?php if($form4->legalizado == 'Sim'){ ?> checked <?php } ?> />
-			<label for="r8">Sim</label></p>
-			<p><input class="with-gap" name="legalizado" type="radio" value="Não"  id="r9" <?php if($form4->legalizado == 'Não'){ ?> checked <?php } ?> />
-			<label for="r9">Não</label></p>  
+			<p><input class="with-gap" name="legalizado" type="radio" value="Sim" id="e4_8" required <?php if($form4->legalizado == 'Sim'){ ?> checked <?php } ?> />
+			<label for="e4_8">Sim</label></p>
+			<p><input class="with-gap" name="legalizado" type="radio" value="Não"  id="e4_9" <?php if($form4->legalizado == 'Não'){ ?> checked <?php } ?> />
+			<label for="e4_9">Não</label></p>  
 		</div>
 		<div class="col s12 l3 " >
 			<br>	
 			<label class="texto" for="insalubre">2.7 Trabalho Insalubre</label class="texto">
-			<p><input class="with-gap" name="insalubre" type="radio" value="Sim" id="r10" required <?php if($form4->insalubre == 'Sim'){ ?> checked <?php } ?> />
-			<label for="r10">Sim</label></p>
-			<p><input class="with-gap" name="insalubre" type="radio" value="Não"  id="r11" <?php if($form4->insalubre == 'Não'){ ?> checked <?php } ?> />
-			<label for="r11">Não</label></p> 
+			<p><input class="with-gap" name="insalubre" type="radio" value="Sim" id="e4_10" required <?php if($form4->insalubre == 'Sim'){ ?> checked <?php } ?> />
+			<label for="e4_10">Sim</label></p>
+			<p><input class="with-gap" name="insalubre" type="radio" value="Não"  id="e4_11" <?php if($form4->insalubre == 'Não'){ ?> checked <?php } ?> />
+			<label for="e4_11">Não</label></p> 
 		</div>
 		<div class="col s12 l12"></div>
 		<div class="col s12 l4 " >
@@ -142,8 +143,9 @@
 			<textarea class="materialize-textarea" name="tipo_trabalho" id="" cols="30" rows="4" placeholder="Descreva a atividade caso exista, ou deixe em branco caso não." required="required"><?php echo $form4->tipo_trabalho; ?></textarea>
 		</div>
 		<div class="col l12 s12">
-			<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar</button>
+			<button class="btn waves-effect waves-light blue" type="submit" name="action" formaction="<?php echo base_url('Pessoa/edit_educacao_emprego/'.$id);?>">Salvar</button>
 			<br><br>
 		</div>
 	</div>
 </div>
+</form>

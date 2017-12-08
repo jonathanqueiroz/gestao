@@ -85,128 +85,128 @@
 		<div class="col s12 l2  " >
 			<br>
 			<label class="texto" for="aspecto_geral">2.6 Aspecto Geral </label class="texto">
-			<p><input class="with-gap" name="aspecto_geral" type="radio" value="Normal" id="r0" required />
-			<label for="r0">Normal</label></p>
-			<p><input class="with-gap" name="aspecto_geral" type="radio" value="Anormal"  id="r01" />
-			<label for="r01">Anormal</label></p> 
+			<p><input class="with-gap" name="aspecto_geral" type="radio" value="Normal" id="r7_0" required />
+			<label for="r7_0">Normal</label></p>
+			<p><input class="with-gap" name="aspecto_geral" type="radio" value="Anormal"  id="r7_01" />
+			<label for="r7_01">Anormal</label></p> 
 			<br>
 		</div>
 		<div class="col s12 l2  " >
 			<br>
 			<label class="texto" for="pele_anexos">2.7 Pele e Anexos </label class="texto">
-			<p><input class="with-gap" name="pele_anexos" type="radio" value="Normal" id="r1" required />
-			<label for="r1">Normal</label></p>
-			<p><input class="with-gap" name="pele_anexos" type="radio" value="Anormal"  id="r2" />
-			<label for="r2">Anormal</label></p> 
+			<p><input class="with-gap" name="pele_anexos" type="radio" value="Normal" id="r7_1" required />
+			<label for="r7_1">Normal</label></p>
+			<p><input class="with-gap" name="pele_anexos" type="radio" value="Anormal"  id="r7_2" />
+			<label for="r7_2">Anormal</label></p> 
 			<br> 
 		</div>
 		<div class="col s12 l2  " >
 			<br>
 			<label class="texto" for="cabeca">2.8 Cabeça</label class="texto">
-			<p><input class="with-gap" name="cabeca" type="radio" value="Normal" id="r3" required />
-			<label for="r3">Normal</label></p>
-			<p><input class="with-gap" name="cabeca" type="radio" value="Anormal"  id="r4" />
-			<label for="r4">Anormal</label></p>
+			<p><input class="with-gap" name="cabeca" type="radio" value="Normal" id="r7_3" required />
+			<label for="r7_3">Normal</label></p>
+			<p><input class="with-gap" name="cabeca" type="radio" value="Anormal"  id="r7_4" />
+			<label for="r7_4">Anormal</label></p>
 			<br>
 		</div>
 		<div class="col s12 l2  " >
 			<br>
 			<label class="texto" for="acuidade_visual">2.9 Acuidade Visual</label class="texto">
-			<p><input class="with-gap" name="acuidade_visual" type="radio" value="Normal" id="r5" required />
-			<label for="r5">Normal</label></p>
-			<p><input class="with-gap" name="acuidade_visual" type="radio" value="Anormal"  id="r6" />
-			<label for="r6">Anormal</label></p>
+			<p><input class="with-gap" name="acuidade_visual" type="radio" value="Normal" id="r7_5" required />
+			<label for="r7_5">Normal</label></p>
+			<p><input class="with-gap" name="acuidade_visual" type="radio" value="Anormal"  id="r7_6" />
+			<label for="r7_6">Anormal</label></p>
 			<br>
 		</div>
 		<div class="col s12 l2  " >
 			<br>
 			<label class="texto" for="acuidade_auditiva">2.10 Acuidade Auditiva</label class="texto">
-			<p><input class="with-gap" name="acuidade_auditiva" type="radio" value="Normal" id="r7" required />
-			<label for="r7">Normal</label></p>
-			<p><input class="with-gap" name="acuidade_auditiva" type="radio" value="Anormal"  id="r8" />
-			<label for="r8">Anormal</label></p>
+			<p><input class="with-gap" name="acuidade_auditiva" type="radio" value="Normal" id="r7_7" required />
+			<label for="r7_7">Normal</label></p>
+			<p><input class="with-gap" name="acuidade_auditiva" type="radio" value="Anormal"  id="r7_8" />
+			<label for="r7_8">Anormal</label></p>
 			<br>
 		</div>
 		<div class="col s12 l2  " >
 			<br>
 			<label class="texto" for="bocas_dentes">2.11 Bocas e Dentes</label class="texto">
-			<p><input class="with-gap" name="bocas_dentes" type="radio" value="Normal" id="r9" required />
-			<label for="r9">Normal</label></p>
-			<p><input class="with-gap" name="bocas_dentes" type="radio" value="Anormal"  id="r10" />
-			<label for="r10">Anormal</label></p>
+			<p><input class="with-gap" name="bocas_dentes" type="radio" value="Normal" id="r7_9" required />
+			<label for="r7_9">Normal</label></p>
+			<p><input class="with-gap" name="bocas_dentes" type="radio" value="Anormal"  id="r7_10" />
+			<label for="r7_10">Anormal</label></p>
 			<br>
 		</div>
 		<div class="col s12 l2  " >
 			<br>
 			<label class="texto" for="pescoco_tireoide">2.12 Pescoço e Tireoíde</label class="texto">
-			<p><input class="with-gap" name="pescoco_tireoide" type="radio" value="Normal" id="r11" required />
-			<label for="r11">Normal</label></p>
-			<p><input class="with-gap" name="pescoco_tireoide" type="radio" value="Anormal"  id="r12" />
-			<label for="r12">Anormal</label></p>
+			<p><input class="with-gap" name="pescoco_tireoide" type="radio" value="Normal" id="r7_11" required />
+			<label for="r7_11">Normal</label></p>
+			<p><input class="with-gap" name="pescoco_tireoide" type="radio" value="Anormal"  id="r7_12" />
+			<label for="r7_12">Anormal</label></p>
 			<br>
 		</div>
 		<div class="col s12 l2  " >
 			<br>
 			<label class="texto" for="torax_mamas">2.13 Tórax e Mamas</label class="texto">
-			<p><input class="with-gap" name="torax_mamas" type="radio" value="Normal" id="r13" required />
-			<label for="r13">Normal</label></p>
-			<p><input class="with-gap" name="torax_mamas" type="radio" value="Anormal"  id="r14" />
-			<label for="r14">Anormal</label></p>
+			<p><input class="with-gap" name="torax_mamas" type="radio" value="Normal" id="r7_13" required />
+			<label for="r7_13">Normal</label></p>
+			<p><input class="with-gap" name="torax_mamas" type="radio" value="Anormal"  id="r7_14" />
+			<label for="r7_14">Anormal</label></p>
 			<br> 
 		</div>
 		<div class="col s12 l2  " >
 			<br>
 			<label class="texto" for="cardiovascular">2.14 Cárdiovascular</label class="texto">
-			<p><input class="with-gap" name="cardiovascular" type="radio" value="Normal" id="r15" required />
-			<label for="r15">Normal</label></p>
-			<p><input class="with-gap" name="cardiovascular" type="radio" value="Anormal"  id="r16" />
-			<label for="r16">Anormal</label></p>
+			<p><input class="with-gap" name="cardiovascular" type="radio" value="Normal" id="r7_15" required />
+			<label for="r7_15">Normal</label></p>
+			<p><input class="with-gap" name="cardiovascular" type="radio" value="Anormal"  id="r7_16" />
+			<label for="r7_16">Anormal</label></p>
 			<br>			
 		</div>
 		<div class="col s12 l2 " >
 			<br>			
 			<label class="texto" for="abdomen">2.15 Abdômen</label class="texto">
-			<p><input class="with-gap" name="abdomen" type="radio" value="Normal" id="r17" required />
-			<label for="r17">Normal</label></p>
-			<p><input class="with-gap" name="abdomen" type="radio" value="Anormal"  id="r18" />
-			<label for="r18">Anormal</label></p>
+			<p><input class="with-gap" name="abdomen" type="radio" value="Normal" id="r7_17" required />
+			<label for="r7_17">Normal</label></p>
+			<p><input class="with-gap" name="abdomen" type="radio" value="Anormal"  id="r7_18" />
+			<label for="r7_18">Anormal</label></p>
 			<br>
 			
 		</div>
 		<div class="col s12 l2  " >
 			<br>		
 			<label class="texto" for="geniturinario">2.16 Geniturinário</label class="texto">
-			<p><input class="with-gap" name="geniturinario" type="radio" value="Normal" id="r19" required />
-			<label for="r19">Normal</label></p>
-			<p><input class="with-gap" name="geniturinario" type="radio" value="Anormal"  id="r20" />
-			<label for="r20">Anormal</label></p> 
+			<p><input class="with-gap" name="geniturinario" type="radio" value="Normal" id="r7_19" required />
+			<label for="r7_19">Normal</label></p>
+			<p><input class="with-gap" name="geniturinario" type="radio" value="Anormal"  id="r7_20" />
+			<label for="r7_20">Anormal</label></p> 
 			<br>			
 		</div>
 		<div class="col s12 l2  " >
 			<br>			
 			<label class="texto" for="coluna">2.17 Coluna</label class="texto">
-			<p><input class="with-gap" name="coluna" type="radio" value="Normal" id="r21" required />
-			<label for="r21">Normal</label></p>
-			<p><input class="with-gap" name="coluna" type="radio" value="Anormal"  id="r22" />
-			<label for="r22">Anormal</label></p>  	
+			<p><input class="with-gap" name="coluna" type="radio" value="Normal" id="r7_21" required />
+			<label for="r7_21">Normal</label></p>
+			<p><input class="with-gap" name="coluna" type="radio" value="Anormal"  id="r7_22" />
+			<label for="r7_22">Anormal</label></p>  	
 			<br>		
 		</div>
 		<div class="col s12 l2  " >
 			<br>		
 			<label class="texto" for="extremidades">2.18 Extremidades</label class="texto">
-			<p><input class="with-gap" name="extremidades" type="radio" value="Normal" id="r23" required />
-			<label for="r23">Normal</label></p>
-			<p><input class="with-gap" name="extremidades" type="radio" value="Anormal"  id="r24" />
-			<label for="r24">Anormal</label></p> 
+			<p><input class="with-gap" name="extremidades" type="radio" value="Normal" id="r7_23" required />
+			<label for="r7_23">Normal</label></p>
+			<p><input class="with-gap" name="extremidades" type="radio" value="Anormal"  id="r7_24" />
+			<label for="r7_24">Anormal</label></p> 
 			<br>			
 		</div>
 		<div class="col s12 l2  " >
 			<br>			
 			<label class="texto" for="neurologicos">2.19 Neurológicos</label class="texto">
-			<p><input class="with-gap" name="neurologicos" type="radio" value="Normal" id="r25" required />
-			<label for="r25">Normal</label></p>
-			<p><input class="with-gap" name="neurologicos" type="radio" value="Anormal"  id="r26" />
-			<label for="r26">Anormal</label></p>
+			<p><input class="with-gap" name="neurologicos" type="radio" value="Normal" id="r7_25" required />
+			<label for="r7_25">Normal</label></p>
+			<p><input class="with-gap" name="neurologicos" type="radio" value="Anormal"  id="r7_26" />
+			<label for="r7_26">Anormal</label></p>
 			<br>			
 		</div>
 		<div class="col s12 l12"><br></div>
@@ -222,8 +222,9 @@
 		</div>
 		<div class="col l12 s12">
 			<br>
-			<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar</button>
+			<button class="btn waves-effect waves-light blue" type="submit" name="action" formaction="<?php echo base_url('Pessoa/emocional_fisico/'.$id);?>">Salvar</button>
 			<br><br>
 		</div>
 	</div>
 </div>
+</form>

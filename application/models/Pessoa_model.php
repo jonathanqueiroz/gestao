@@ -387,8 +387,9 @@ class Pessoa_model extends CI_Model {
         }
     }
 
-    public function getAdolescentes()
+    public function getAdolescentes($nome='')
     {
+        $this->db->like('nome', $nome);        
         $query = $this->db->get('cadastroAdolescenteOne');
         return $query->result_array();
     }

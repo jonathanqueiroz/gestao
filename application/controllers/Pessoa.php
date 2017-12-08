@@ -113,7 +113,7 @@ class Pessoa extends CI_Controller {
     }
 
 
-    public function cadastrar_adolescente($id=0)
+    public function cadastro_adolescente($id=0)
     {
         $data['id'] = $id;
         if ($id != 0) {
@@ -139,20 +139,7 @@ class Pessoa extends CI_Controller {
     {
         $data['title'] = 'Cadastrar Pessoa';
         $this->form_validation->set_rules('nome', 'Nome', 'required');
-        $this->form_validation->set_rules('rg', 'RG', 'required');
-        $this->form_validation->set_rules('telefone', 'Telefone', 'required');
-        $this->form_validation->set_rules('nascimento', 'Data de Nascimento', 'required');
-        $this->form_validation->set_rules('endereco', 'Endereço', 'required');
-        $this->form_validation->set_rules('cidade', 'Cidade', 'required');
-        $this->form_validation->set_rules('pt_ref', 'Ponto de Referência', 'required');
-        $this->form_validation->set_rules('cep', 'CEP', 'required');
-        $this->form_validation->set_rules('local_nascimento', 'Local Nascimento', 'required');
-        $this->form_validation->set_rules('filiacao_mae', 'Filiação Mãe', 'required');
-        $this->form_validation->set_rules('filiacao_pai', 'Filiação Pai', 'required');
-        $this->form_validation->set_rules('responsavel', 'Responsável', 'required');
-        $this->form_validation->set_rules('estado_civil', 'Estado Civil', 'required');
-        $this->form_validation->set_rules('acompanhante', 'Acompanhante', 'required');
-        $this->form_validation->set_rules('sexo', 'Sexo', 'required');
+
 
         if ($this->form_validation->run() === FALSE)
         {
@@ -163,7 +150,7 @@ class Pessoa extends CI_Controller {
         else
         {
             $id_adolescente = $this->pessoa_model->setPessoa_step1($id);
-            redirect('Pessoa/cadastrar_adolescente/'.$id_adolescente,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$id_adolescente,'auto');
         }
     }
 
@@ -216,7 +203,7 @@ class Pessoa extends CI_Controller {
         }
         else{
             $this->pessoa_model->setPessoa_step2('0', $fk_pessoa);
-            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
         }
     }
 
@@ -271,7 +258,7 @@ class Pessoa extends CI_Controller {
         else
         {
             $this->pessoa_model->setPessoa_step3('0', $fk_pessoa);
-            redirect('Pessoa/educacao_emprego/'.$fk_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
         }
     }
 
@@ -296,7 +283,7 @@ class Pessoa extends CI_Controller {
         else
         {
             $this->pessoa_model->setPessoa_step4('0', $fk_pessoa);
-            redirect('Pessoa/vida_social/'.$fk_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
         }
     }
 
@@ -323,7 +310,7 @@ class Pessoa extends CI_Controller {
         {
             $fk_pessoa = $this->input->post('id');
             $this->pessoa_model->setPessoa_step5('0', $fk_pessoa);
-            redirect('Pessoa/ginegologico_sexualidade'.$fk_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
         }
     }
 
@@ -348,7 +335,7 @@ class Pessoa extends CI_Controller {
         else
         {
             $this->pessoa_model->setPessoa_step6('0', $fk_pessoa);
-            redirect('Pessoa/emocional_fisico/'.$fk_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
         }
     }
 
@@ -373,9 +360,7 @@ class Pessoa extends CI_Controller {
         else
         {
             $this->pessoa_model->setPessoa_step7('0', $fk_pessoa);
-            $this->load->view('templates/header', $data);
-            $this->load->view('pessoa/sucess');
-            $this->load->view('templates/footer');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
         }
     }
 
@@ -386,6 +371,22 @@ class Pessoa extends CI_Controller {
         $this->load->view('projeto/adolescentes');
         $this->load->view('templates/footer');
 
+    }
+
+    public function get_adolescente()
+    {
+        $this->form_validation->set_rules('nome', 'Nome', 'trim');
+
+        if ($this->form_validation->run() != FALSE)
+        {   
+            $nome = $this->input->post('nome');
+            $data['adolescentes'] = $this->pessoa_model->getAdolescentes($nome);
+            $this->session->set_tempdata('resultado', $data['adolescentes']);
+            redirect('Pessoa/adolescentes','refresh');
+            /*$this->load->view('templates/header', $data);
+            $this->load->view('projeto/adolescentes');
+            $this->load->view('templates/footer'); */
+        }
     }
 
     public function edit_dados_adolescente($id=0)
@@ -409,7 +410,7 @@ class Pessoa extends CI_Controller {
         else
         {
             $this->pessoa_model->setPessoa_step1('1', $id_pessoa);
-            redirect('Pessoa/cadastrar_adolescente/'.$id_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$id_pessoa,'auto');
             //redirect('Pessoa/edit_antecedentes/'.$id_pessoa,'auto');
         }
     }
@@ -434,7 +435,7 @@ class Pessoa extends CI_Controller {
         }
         else{
             $this->pessoa_model->setPessoa_step2('1', $fk_pessoa);
-            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
             //redirect('Pessoa/edit_situacao_familiar/'.$fk_pessoa,'auto');
         }
     }
@@ -459,7 +460,7 @@ class Pessoa extends CI_Controller {
         }
         else{
             $this->pessoa_model->setPessoa_step3('1', $fk_pessoa);
-            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
             //redirect('Pessoa/edit_educacao_emprego/'.$fk_pessoa,'auto');
         }
     }
@@ -486,7 +487,7 @@ class Pessoa extends CI_Controller {
         else
         {
             $this->pessoa_model->setPessoa_step4('1', $fk_pessoa);
-            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
             //redirect('Pessoa/edit_vida_social/'.$fk_pessoa,'auto');
         }
     }
@@ -515,7 +516,7 @@ class Pessoa extends CI_Controller {
         {
             $fk_pessoa = $this->input->post('id');
             $this->pessoa_model->setPessoa_step5('1', $fk_pessoa);
-            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
             //redirect('Pessoa/edit_ginegologico_sexualidade/'.$fk_pessoa,'auto');
         }
     }
@@ -542,7 +543,7 @@ class Pessoa extends CI_Controller {
         else
         {
             $this->pessoa_model->setPessoa_step6('1', $fk_pessoa);
-            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
             //redirect('Pessoa/edit_emocional_fisico/'.$fk_pessoa,'auto');
         }
     }
@@ -569,8 +570,7 @@ class Pessoa extends CI_Controller {
         else
         {
             $this->pessoa_model->setPessoa_step7('1', $fk_pessoa);
-            redirect('Pessoa/cadastrar_adolescente/'.$fk_pessoa,'auto');
+            redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
         }
     }
-
 }

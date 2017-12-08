@@ -24,32 +24,32 @@
 		<div class="col s12 l3  " >
 			<br>
 			<label class="texto" for="ciclos">1.3 Ciclos Regulares </label>
-			<p><input class="with-gap" name="ciclos" type="radio" value="Sim" id="r1" required <?php if($form6->ciclos == 'Sim'){ ?> checked <?php } ?> />
-			<label for="r1">Sim</label></p>
-			<p><input class="with-gap" name="ciclos" type="radio" value="Não"  id="r2" <?php if($form6->ciclos == 'Não'){ ?> checked <?php } ?> />
-			<label for="r2">Não</label></p>  
-			<p><input class="with-gap" name="ciclos" type="radio" value="Não Corresponde"  id="r3" <?php if($form6->ciclos == 'Não Corresponde'){ ?> checked <?php } ?> />
-			<label for="r3">Não Corresponde </label></p>   	
+			<p><input class="with-gap" name="ciclos" type="radio" value="Sim" id="e6_1" required <?php if($form6->ciclos == 'Sim'){ ?> checked <?php } ?> />
+			<label for="e6_1">Sim</label></p>
+			<p><input class="with-gap" name="ciclos" type="radio" value="Não"  id="e6_2" <?php if($form6->ciclos == 'Não'){ ?> checked <?php } ?> />
+			<label for="e6_2">Não</label></p>  
+			<p><input class="with-gap" name="ciclos" type="radio" value="Não Corresponde"  id="e6_3" <?php if($form6->ciclos == 'Não Corresponde'){ ?> checked <?php } ?> />
+			<label for="e6_3">Não Corresponde </label></p>   	
 		</div>
 		<div class="col s12 l3  " >
 			<br>
 			<label class="texto" for="dismonorreia">1.4 Dismenorréia</label>
-			<p><input class="with-gap" name="dismonorreia" type="radio" value="Sim" id="r4" required <?php if($form6->dismonorreia == 'Sim'){ ?> checked <?php } ?> />
-			<label for="r4">Sim</label></p>
-			<p><input class="with-gap" name="dismonorreia" type="radio" value="Não"  id="r5" <?php if($form6->dismonorreia == 'Não'){ ?> checked <?php } ?> />
-			<label for="r5">Não</label></p>  
-			<p><input class="with-gap" name="dismonorreia" type="radio" value="Não Corresponde"  id="r6" <?php if($form6->dismonorreia == 'Não Corresponde'){ ?> checked <?php } ?> />
-			<label for="r6">Não Corresponde </label></p> 
+			<p><input class="with-gap" name="dismonorreia" type="radio" value="Sim" id="e6_4" required <?php if($form6->dismonorreia == 'Sim'){ ?> checked <?php } ?> />
+			<label for="e6_4">Sim</label></p>
+			<p><input class="with-gap" name="dismonorreia" type="radio" value="Não"  id="e6_5" <?php if($form6->dismonorreia == 'Não'){ ?> checked <?php } ?> />
+			<label for="e6_5">Não</label></p>  
+			<p><input class="with-gap" name="dismonorreia" type="radio" value="Não Corresponde"  id="e6_6" <?php if($form6->dismonorreia == 'Não Corresponde'){ ?> checked <?php } ?> />
+			<label for="e6_6">Não Corresponde </label></p> 
 		</div>
 		<div class="col s12 l3  " >
 			<br>
 			<label class="texto" for="patologico_secrecao">1.5 Fluxo Patológico / Secreção Peniana </label>
-			<p><input class="with-gap" name="patologico_secrecao" type="radio" value="Sim" id="r7" required <?php if($form6->patologico_secrecao == 'Sim'){ ?> checked <?php } ?> />
-			<label for="r7">Sim</label></p>
-			<p><input class="with-gap" name="patologico_secrecao" type="radio" value="Não"  id="r8" <?php if($form6->patologico_secrecao == 'Não'){ ?> checked <?php } ?> />
-			<label for="r8">Não</label></p>  
-			<p><input class="with-gap" name="patologico_secrecao" type="radio" value="Não Corresponde"  id="r9" <?php if($form6->patologico_secrecao == 'Não Corresponde'){ ?> checked <?php } ?> />
-			<label for="r9">Não Corresponde </label></p> 
+			<p><input class="with-gap" name="patologico_secrecao" type="radio" value="Sim" id="e6_7" required <?php if($form6->patologico_secrecao == 'Sim'){ ?> checked <?php } ?> />
+			<label for="e6_7">Sim</label></p>
+			<p><input class="with-gap" name="patologico_secrecao" type="radio" value="Não"  id="e6_8" <?php if($form6->patologico_secrecao == 'Não'){ ?> checked <?php } ?> />
+			<label for="e6_8">Não</label></p>  
+			<p><input class="with-gap" name="patologico_secrecao" type="radio" value="Não Corresponde"  id="e6_9" <?php if($form6->patologico_secrecao == 'Não Corresponde'){ ?> checked <?php } ?> />
+			<label for="e6_9">Não Corresponde </label></p> 
 		</div>
 		<div class="col s12 l12"><br></div>
 		<div class="col s12 l3  " >
@@ -80,7 +80,7 @@
 		<div class="col s12 l12 "><br>2. Sexualidade <br></div>
 		<div class="col s12 l3  " >
 			<br>
-			<label class="texto" for="relacoes_sexuais">2.1 Relações Sexuais</label>
+			<label class="texto" for="e6_elacoes_sexuais">2.1 Relações Sexuais</label>
 			<br><br>
 			<select name="relacoes_sexuais" id="" required="required">
 				<option value="" disabled="disabled" selected="selected">Selecione</option>
@@ -93,30 +93,30 @@
 		<div class="col s12 l3  " >
 			<br>
 			<label class="texto" for="informacao">2.2 Necessita Informação </label>
-			<p><input class="with-gap" name="informacao" type="radio" value="Sim" id="r10" required <?php if($form6->informacao == 'Sim'){ ?> checked <?php } ?> />
-			<label for="r10">Sim</label></p>
-			<p><input class="with-gap" name="informacao" type="radio" value="Não"  id="r11" <?php if($form6->informacao == 'Não'){ ?> checked <?php } ?> />
-			<label for="r11">Não</label></p>
+			<p><input class="with-gap" name="informacao" type="radio" value="Sim" id="e6_10" required <?php if($form6->informacao == 'Sim'){ ?> checked <?php } ?> />
+			<label for="e6_10">Sim</label></p>
+			<p><input class="with-gap" name="informacao" type="radio" value="Não"  id="e6_11" <?php if($form6->informacao == 'Não'){ ?> checked <?php } ?> />
+			<label for="e6_11">Não</label></p>
 		</div>
 				<div class="col s12 l3  " >
 			<br>
 			<label class="texto" for="problema_sexuais">2.3 Problemas nas Relações Sexuais</label>
-			<p><input class="with-gap" name="problema_sexuais" type="radio" value="Sim" id="r14" required <?php if($form6->problema_sexuais == 'Sim'){ ?> checked <?php } ?> />
-			<label for="r14">Sim</label></p>
-			<p><input class="with-gap" name="problema_sexuais" type="radio" value="Não"  id="r15" <?php if($form6->problema_sexuais == 'Não'){ ?> checked <?php } ?> />
-			<label for="r15">Não</label></p>  
-			<p><input class="with-gap" name="problema_sexuais" type="radio" value="Não Corresponde"  id="r16" <?php if($form6->problema_sexuais == 'Não Corresponde'){ ?> checked <?php } ?> />
-			<label for="r16">Não Corresponde </label></p>  
+			<p><input class="with-gap" name="problema_sexuais" type="radio" value="Sim" id="e6_14" required <?php if($form6->problema_sexuais == 'Sim'){ ?> checked <?php } ?> />
+			<label for="e6_14">Sim</label></p>
+			<p><input class="with-gap" name="problema_sexuais" type="radio" value="Não"  id="e6_15" <?php if($form6->problema_sexuais == 'Não'){ ?> checked <?php } ?> />
+			<label for="e6_15">Não</label></p>  
+			<p><input class="with-gap" name="problema_sexuais" type="radio" value="Não Corresponde"  id="e6_16" <?php if($form6->problema_sexuais == 'Não Corresponde'){ ?> checked <?php } ?> />
+			<label for="e6_16">Não Corresponde </label></p>  
 		</div>
 		<div class="col s12 l3  " >
 			<br>
 			<label class="texto" for="parceiro">2.4 Parceiro(a) </label>
-			<p><input class="with-gap" name="parceiro" type="radio" value="Único(a)" id="r12" required <?php if($form6->parceiro == 'Único(a)'){ ?> checked <?php } ?> />
-			<label for="r12">Único(a)</label></p>
-			<p><input class="with-gap" name="parceiro" type="radio" value="Vários(as)"  id="r13" <?php if($form6->parceiro == 'Vários(as)'){ ?> checked <?php } ?> />
-			<label for="r13">Vários(as)</label></p>
-			<p><input class="with-gap" name="parceiro" type="radio" value="Não Corresponde"  id="r17" <?php if($form6->parceiro == 'Não Corresponde'){ ?> checked <?php } ?> />
-			<label for="r17">Não Corresponde </label></p> 
+			<p><input class="with-gap" name="parceiro" type="radio" value="Único(a)" id="e6_12" required <?php if($form6->parceiro == 'Único(a)'){ ?> checked <?php } ?> />
+			<label for="e6_12">Único(a)</label></p>
+			<p><input class="with-gap" name="parceiro" type="radio" value="Vários(as)"  id="e6_13" <?php if($form6->parceiro == 'Vários(as)'){ ?> checked <?php } ?> />
+			<label for="e6_13">Vários(as)</label></p>
+			<p><input class="with-gap" name="parceiro" type="radio" value="Não Corresponde"  id="e6_17" <?php if($form6->parceiro == 'Não Corresponde'){ ?> checked <?php } ?> />
+			<label for="e6_17">Não Corresponde </label></p> 
 		</div>
 		<div class="col s12 l12"><br></div>
 		<div class="col s12 l3  " >
@@ -154,3 +154,4 @@
 		</div>
 	</div>
 </div>
+</form>

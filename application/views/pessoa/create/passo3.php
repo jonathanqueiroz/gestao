@@ -3,7 +3,8 @@
     $('select').material_select();
   });
 </script>
-<?php echo form_open('Pessoa/situacao_familiar/'.$id); ?>
+<?php $atributo3 = array('id' => 'passo3', 'name' => 'form3');
+	echo form_open('Pessoa/situacao_familiar/'.$id); ?>
 <?php echo validation_errors(); ?>
 <div class="form_cadastro form_box">
 	<br>
@@ -13,111 +14,111 @@
 		<div class="col l12 texto">1. Convive com: <br><br></div>
 		<div class="col l2 s12" >
 			<label class="texto" for="convive_pai">1.1 Mãe </label>
-			<p><input class="with-gap" name="convive_mae" type="radio" value="Não" id="r1" required />
-			<label for="r1">Não</label></p>
-			<p><input class="with-gap" name="convive_mae" type="radio" value="Na Casa"  id="r2" />
-			<label for="r2">Na Casa</label></p>
-			<p><input class="with-gap" name="convive_mae" type="radio" value="No Quarto"  id="r3" />
-			<label for="r3">No Quarto</label></p>
+			<p><input class="with-gap" name="convive_mae" type="radio" value="Não" id="r3_1" required />
+			<label for="r3_1">Não</label></p>
+			<p><input class="with-gap" name="convive_mae" type="radio" value="Na Casa"  id="r3_2" />
+			<label for="r3_2">Na Casa</label></p>
+			<p><input class="with-gap" name="convive_mae" type="radio" value="No Quarto"  id="r3_3" />
+			<label for="r3_3">No Quarto</label></p>
 			<br>
 		</div>
 		<div class="col s12 l2 " >
 			<label class="texto" for="convive_pai">1.2 Pai </label>
-			<p><input class="with-gap" name="convive_pai" type="radio" value="Não" id="r4" required />
-			<label for="r4">Não</label></p>
-			<p><input class="with-gap" name="convive_pai" type="radio" value="Na Casa"  id="r5" />
-			<label for="r5">Na Casa</label></p>
-			<p><input class="with-gap" name="convive_pai" type="radio" value="No Quarto"  id="r6" />
-			<label for="r6">No Quarto</label></p>
+			<p><input class="with-gap" name="convive_pai" type="radio" value="Não" id="r3_4" required />
+			<label for="r3_4">Não</label></p>
+			<p><input class="with-gap" name="convive_pai" type="radio" value="Na Casa"  id="r3_5" />
+			<label for="r3_5">Na Casa</label></p>
+			<p><input class="with-gap" name="convive_pai" type="radio" value="No Quarto"  id="r3_6" />
+			<label for="r3_6">No Quarto</label></p>
 			<br>
 		</div>
 		<div class="col l2 s12" >
 			<label class="texto" for="convive_madrasta">1.3 Madrasta </label>
-			<p><input class="with-gap" name="convive_madrasta" type="radio" value="Não" id="r7" required />
-			<label for="r7">Não</label></p>
-			<p><input class="with-gap" name="convive_madrasta" type="radio" value="Na Casa"  id="r8" />
-			<label for="r8">Na Casa</label></p>
-			<p><input class="with-gap" name="convive_madrasta" type="radio" value="No Quarto"  id="r9" />
-			<label for="r9">No Quarto</label></p>
+			<p><input class="with-gap" name="convive_madrasta" type="radio" value="Não" id="r3_7" required />
+			<label for="r3_7">Não</label></p>
+			<p><input class="with-gap" name="convive_madrasta" type="radio" value="Na Casa"  id="r3_8" />
+			<label for="r3_8">Na Casa</label></p>
+			<p><input class="with-gap" name="convive_madrasta" type="radio" value="No Quarto"  id="r3_9" />
+			<label for="r3_9">No Quarto</label></p>
 			<br>
 		</div>
 		<div class="col l2 s12" >
 			<label class="texto" for="convive_padrastro">1.4 Padrasto </label>
-			<p><input class="with-gap" name="convive_padrastro" type="radio" value="Não" id="r10" required />
-			<label for="r10">Não</label></p>
-			<p><input class="with-gap" name="convive_padrastro" type="radio" value="Na Casa"  id="r11" />
-			<label for="r11">Na Casa</label></p>
-			<p><input class="with-gap" name="convive_padrastro" type="radio" value="No Quarto"  id="r12" />
-			<label for="r12">No Quarto</label></p>
+			<p><input class="with-gap" name="convive_padrastro" type="radio" value="Não" id="r3_10" required />
+			<label for="r3_10">Não</label></p>
+			<p><input class="with-gap" name="convive_padrastro" type="radio" value="Na Casa"  id="r3_11" />
+			<label for="r3_11">Na Casa</label></p>
+			<p><input class="with-gap" name="convive_padrastro" type="radio" value="No Quarto"  id="r3_12" />
+			<label for="r3_12">No Quarto</label></p>
 			<br>
 		</div>
 		<div class="col l2 s12" >
 			<label class="texto" for="convive_irmao">1.5 Irmão(ã)(s) </label>
-			<p><input class="with-gap" name="convive_irmao" type="radio" value="Não" id="r13" required />
-			<label for="r13">Não</label></p>
-			<p><input class="with-gap" name="convive_irmao" type="radio" value="Na Casa"  id="r14" />
-			<label for="r14">Na Casa</label></p>
-			<p><input class="with-gap" name="convive_irmao" type="radio" value="No Quarto"  id="r15" />
-			<label for="r15">No Quarto</label></p>
+			<p><input class="with-gap" name="convive_irmao" type="radio" value="Não" id="r3_13" required />
+			<label for="r3_13">Não</label></p>
+			<p><input class="with-gap" name="convive_irmao" type="radio" value="Na Casa"  id="r3_14" />
+			<label for="r3_14">Na Casa</label></p>
+			<p><input class="with-gap" name="convive_irmao" type="radio" value="No Quarto"  id="r3_15" />
+			<label for="r3_15">No Quarto</label></p>
 			<br>
 		</div>
 		<div class="col l2 s12" >
 			<label class="texto" for="convive_filho">1.6 Filho(s)</label>
-			<p><input class="with-gap" name="convive_filho" type="radio" value="Não" id="r16" required />
-			<label for="r16">Não</label></p>
-			<p><input class="with-gap" name="convive_filho" type="radio" value="Na Casa"  id="r17" />
-			<label for="r17">Na Casa</label></p>
-			<p><input class="with-gap" name="convive_filho" type="radio" value="No Quarto"  id="r18" />
-			<label for="r18">No Quarto</label></p>
+			<p><input class="with-gap" name="convive_filho" type="radio" value="Não" id="r3_16" required />
+			<label for="r3_16">Não</label></p>
+			<p><input class="with-gap" name="convive_filho" type="radio" value="Na Casa"  id="r3_17" />
+			<label for="r3_17">Na Casa</label></p>
+			<p><input class="with-gap" name="convive_filho" type="radio" value="No Quarto"  id="r3_18" />
+			<label for="r3_18">No Quarto</label></p>
 			<br>
 		</div>
 		<div class="col l12 s12"><br></div>
 		<div class="col l2 s12" >
 			<label class="texto" for="convive_companheiro">1.7 Companheiro(a) </label>
-			<p><input class="with-gap" name="convive_companheiro" type="radio" value="Não" id="r19" required />
-			<label for="r19">Não</label></p>
-			<p><input class="with-gap" name="convive_companheiro" type="radio" value="Na Casa"  id="r20" />
-			<label for="r20">Na Casa</label></p>
-			<p><input class="with-gap" name="convive_companheiro" type="radio" value="No Quarto"  id="r21" />
-			<label for="r21">No Quarto</label></p>
+			<p><input class="with-gap" name="convive_companheiro" type="radio" value="Não" id="r3_19" required />
+			<label for="r3_19">Não</label></p>
+			<p><input class="with-gap" name="convive_companheiro" type="radio" value="Na Casa"  id="r3_20" />
+			<label for="r3_20">Na Casa</label></p>
+			<p><input class="with-gap" name="convive_companheiro" type="radio" value="No Quarto"  id="r3_21" />
+			<label for="r3_21">No Quarto</label></p>
 			<br>
 		</div>
 		<div class="col l2 s12" >		
 			<label class="texto" for="convive_outros">1.8 Outros </label>
-			<p><input class="with-gap" name="convive_outros" type="radio" value="Não" id="r22" required />
-			<label for="r22">Não</label></p>
-			<p><input class="with-gap" name="convive_outros" type="radio" value="Na Casa"  id="r23" />
-			<label for="r23">Na Casa</label></p>
-			<p><input class="with-gap" name="convive_outros" type="radio" value="No Quarto"  id="r24" />
-			<label for="r24">No Quarto</label></p>
+			<p><input class="with-gap" name="convive_outros" type="radio" value="Não" id="r3_22" required />
+			<label for="r3_22">Não</label></p>
+			<p><input class="with-gap" name="convive_outros" type="radio" value="Na Casa"  id="r3_23" />
+			<label for="r3_23">Na Casa</label></p>
+			<p><input class="with-gap" name="convive_outros" type="radio" value="No Quarto"  id="r3_24" />
+			<label for="r3_24">No Quarto</label></p>
 			<br>
 		</div>
 		<div class="col l12 s12 texto"><br>2. Vive: <br></div>
 		<div class="col l2 s12" >
 			<br>
 			<label class="texto" for="vive_instituicao">2.1 Em instituição </label>
-			<p><input class="with-gap" name="vive_instituicao" type="radio" value="Sim" id="r25" required />
-			<label for="r25">Sim</label></p>
-			<p><input class="with-gap" name="vive_instituicao" type="radio" value="Não"  id="r26" />
-			<label for="r26">Não</label></p>
+			<p><input class="with-gap" name="vive_instituicao" type="radio" value="Sim" id="r3_25" required />
+			<label for="r3_25">Sim</label></p>
+			<p><input class="with-gap" name="vive_instituicao" type="radio" value="Não"  id="r3_26" />
+			<label for="r3_26">Não</label></p>
 			<br>
 		</div>
 		<div class="col l2 s12" >
 			<br>
 			<label class="texto" for="vive_rua">2.2 Na rua </label>
-			<p><input class="with-gap" name="vive_rua" type="radio" value="Sim" id="r27" required />
-			<label for="r27">Sim</label></p>
-			<p><input class="with-gap" name="vive_rua" type="radio" value="Não"  id="r28" />
-			<label for="r28">Não</label></p>
+			<p><input class="with-gap" name="vive_rua" type="radio" value="Sim" id="r3_27" required />
+			<label for="r3_27">Sim</label></p>
+			<p><input class="with-gap" name="vive_rua" type="radio" value="Não"  id="r3_28" />
+			<label for="r3_28">Não</label></p>
 			<br>
 		</div>
 		<div class="col l2 s12" >
 			<br>
 			<label class="texto" for="vive_sozinho">2.3 Sozinho </label>
-			<p><input class="with-gap" name="vive_sozinho" type="radio" value="Sim" id="r29" required />
-			<label for="r29">Sim</label></p>
-			<p><input class="with-gap" name="vive_sozinho" type="radio" value="Não"  id="r30" />
-			<label for="r30">Não</label></p>
+			<p><input class="with-gap" name="vive_sozinho" type="radio" value="Sim" id="r3_29" required />
+			<label for="r3_29">Sim</label></p>
+			<p><input class="with-gap" name="vive_sozinho" type="radio" value="Não"  id="r3_30" />
+			<label for="r3_30">Não</label></p>
 			<br>
 		</div>
 
@@ -189,84 +190,84 @@
 		<div class="col l12 s12">
 			<br>
 			<label class="texto" for="percepcao">6. Percepção Familiar do Adolescente: </label>
-			<p><input class="with-gap" name="percepcao" type="radio" value="Boa"  id="r31" required />
-			<label for="r31">Boa</label></p>
-			<p><input class="with-gap" name="percepcao" type="radio" value="Regular"  id="r32" />
-			<label for="r32">Regular</label></p>
-			<p><input class="with-gap" name="percepcao" type="radio" value="Ruim"  id="r33" />
-			<label for="r33">Ruim</label></p>
-			<p><input class="with-gap" name="percepcao" type="radio" value="Não Há"  id="r34" />
-			<label for="r34">Não Há</label></p>    	
+			<p><input class="with-gap" name="percepcao" type="radio" value="Boa"  id="r3_31" required />
+			<label for="r3_31">Boa</label></p>
+			<p><input class="with-gap" name="percepcao" type="radio" value="Regular"  id="r3_32" />
+			<label for="r3_32">Regular</label></p>
+			<p><input class="with-gap" name="percepcao" type="radio" value="Ruim"  id="r3_33" />
+			<label for="r3_33">Ruim</label></p>
+			<p><input class="with-gap" name="percepcao" type="radio" value="Não Há"  id="r3_34" />
+			<label for="r3_34">Não Há</label></p>    	
 		</div>
 		<div class="col l12 s12 texto"><br>7. Condições de Moradia <br></div>
 		<div class="col l2 s12" >
 			<br>
 			<label class="texto" for="condicoes_energia">7.1 Energia Elétrica </label>
-			<p><input class="with-gap" name="condicoes_energia" type="radio" value="Sim"  id="r35" required />
-			<label for="r35">Sim</label></p>
-			<p><input class="with-gap" name="condicoes_energia" type="radio" value="Não"  id="r36" />
-			<label for="r36">Não</label></p>			
+			<p><input class="with-gap" name="condicoes_energia" type="radio" value="Sim"  id="r3_35" required />
+			<label for="r3_35">Sim</label></p>
+			<p><input class="with-gap" name="condicoes_energia" type="radio" value="Não"  id="r3_36" />
+			<label for="r3_36">Não</label></p>			
 		</div>
 		<div class="col l2 s12" >
 			<br>
 			<label class="texto" for="condicoes_lixo">7.2 Coleta de Lixo </label>
-			<p><input class="with-gap" name="condicoes_lixo" type="radio" value="Sim"  id="r37" required />
-			<label for="r37">Sim</label></p>
-			<p><input class="with-gap" name="condicoes_lixo" type="radio" value="Não"  id="r38" />
-			<label for="r38">Não</label></p>	
+			<p><input class="with-gap" name="condicoes_lixo" type="radio" value="Sim"  id="r3_37" required />
+			<label for="r3_37">Sim</label></p>
+			<p><input class="with-gap" name="condicoes_lixo" type="radio" value="Não"  id="r3_38" />
+			<label for="r3_38">Não</label></p>	
 		</div>
 		<div class="col l2 s12" >
 			<br>
 			
 			<label class="texto" for="condicoes_agua">7.3 Água </label>
-			<p><input class="with-gap" name="condicoes_agua" type="radio" value="Na Casa"  id="r39" required />
-			<label for="r39">Na Casa</label></p>
-			<p><input class="with-gap" name="condicoes_agua" type="radio" value="Fora da Casa"  id="r40" />
-			<label for="r40">Fora da Casa</label></p>		
+			<p><input class="with-gap" name="condicoes_agua" type="radio" value="Na Casa"  id="r3_39" required />
+			<label for="r3_39">Na Casa</label></p>
+			<p><input class="with-gap" name="condicoes_agua" type="radio" value="Fora da Casa"  id="r3_40" />
+			<label for="r3_40">Fora da Casa</label></p>		
 		</div>
 		<div class="col l2 s12" >
 			<br>
 			<label class="texto" for="condicoes_dejetos">7.4 Dejetos </label>
-			<p><input class="with-gap" name="condicoes_dejetos" type="radio" value="Na Casa"  id="r41" required />
-			<label for="r41">Na Casa</label></p>
-			<p><input class="with-gap" name="condicoes_dejetos" type="radio" value="Fora da Casa"  id="r42" />
-			<label for="r42">Fora da Casa</label></p> 
+			<p><input class="with-gap" name="condicoes_dejetos" type="radio" value="Na Casa"  id="r3_41" required />
+			<label for="r3_41">Na Casa</label></p>
+			<p><input class="with-gap" name="condicoes_dejetos" type="radio" value="Fora da Casa"  id="r3_42" />
+			<label for="r3_42">Fora da Casa</label></p> 
 		</div>
 		<div class="col l2 s12" >
 			<br>
 			<label class="texto" for="condicoes_quarto">7.5 Compartilha o Quarto </label>
-			<p><input class="with-gap" name="condicoes_quarto" type="radio" value="Sim"  id="r43" required />
-			<label for="r43">Sim</label></p>
-			<p><input class="with-gap" name="condicoes_quarto" type="radio" value="Não"  id="r44" />
-			<label for="r44">Não</label></p>
+			<p><input class="with-gap" name="condicoes_quarto" type="radio" value="Sim"  id="r3_43" required />
+			<label for="r3_43">Sim</label></p>
+			<p><input class="with-gap" name="condicoes_quarto" type="radio" value="Não"  id="r3_44" />
+			<label for="r3_44">Não</label></p>
 		</div>
 		<div class="col l2 s12" >
 			<br>
 			<label class="texto" for="condicoes_cama">7.6 Compartilha a Cama </label>
-			<p><input class="with-gap" name="condicoes_cama" type="radio" value="Sim"  id="r45" required />
-			<label for="r45">Sim</label></p>
-			<p><input class="with-gap" name="condicoes_cama" type="radio" value="Não"  id="r46" />
-			<label for="r46">Não</label></p> 
+			<p><input class="with-gap" name="condicoes_cama" type="radio" value="Sim"  id="r3_45" required />
+			<label for="r3_45">Sim</label></p>
+			<p><input class="with-gap" name="condicoes_cama" type="radio" value="Não"  id="r3_46" />
+			<label for="r3_46">Não</label></p> 
 		</div>
 		<div class="col l2 s12" >
 			<br>
 			<label class="texto" for="condicoes_habitacao">7.7 Tipo de Habitação </label>
-			<p><input class="with-gap" name="condicoes_habitacao" type="radio" value="Próprio"  id="r47" required />
-			<label for="r47">Próprio</label></p>
-			<p><input class="with-gap" name="condicoes_habitacao" type="radio" value="Alugado"  id="r48" />
-			<label for="r48">Alugado</label></p> 
-			<p><input class="with-gap" name="condicoes_habitacao" type="radio" value="Cessão"  id="r49" />
-			<label for="r49">Cessão</label></p> 
+			<p><input class="with-gap" name="condicoes_habitacao" type="radio" value="Próprio"  id="r3_47" required />
+			<label for="r3_47">Próprio</label></p>
+			<p><input class="with-gap" name="condicoes_habitacao" type="radio" value="Alugado"  id="r3_48" />
+			<label for="r3_48">Alugado</label></p> 
+			<p><input class="with-gap" name="condicoes_habitacao" type="radio" value="Cessão"  id="r3_49" />
+			<label for="r3_49">Cessão</label></p> 
 		</div>
 		<div class="col l2 s12 " >
 			<br>
 			<label class="texto" for="condicoes_construcao">7.8 Tipo de Construção </label>
-			<p><input class="with-gap" name="condicoes_construcao" type="radio" value="Tijolos"  id="r50" required />
-			<label for="r50">Tijolos</label></p>
-			<p><input class="with-gap" name="condicoes_construcao" type="radio" value="Madeira"  id="r51" />
-			<label for="r51">Madeira</label></p> 
-			<p><input class="with-gap" name="condicoes_construcao" type="radio" value="Outros"  id="r52" />
-			<label for="r52">Outros</label></p> 
+			<p><input class="with-gap" name="condicoes_construcao" type="radio" value="Tijolos"  id="r3_50" required />
+			<label for="r3_50">Tijolos</label></p>
+			<p><input class="with-gap" name="condicoes_construcao" type="radio" value="Madeira"  id="r3_51" />
+			<label for="r3_51">Madeira</label></p> 
+			<p><input class="with-gap" name="condicoes_construcao" type="radio" value="Outros"  id="r3_52" />
+			<label for="r3_52">Outros</label></p> 
 		</div>
 		<div class="col l12 s12"><br></div>
 		<div class="col l3 s12">
@@ -286,10 +287,10 @@
 			<br><br>
 		</div>
 		<div class="col l12 s12">
-			<button class="btn waves-effect waves-light blue" type="submit" name="action">Salvar</button>
+			<button class="btn waves-effect waves-light blue" type="submit" name="action" formaction="<?php echo base_url('Pessoa/situacao_familiar/'.$id);?>">Salvar</button>
 			<br><br>
 		</div>
 	</div>
-	
+	</form>
 	
 </div>

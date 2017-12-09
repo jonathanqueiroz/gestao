@@ -1,6 +1,7 @@
+<div class="">
 <div class="row">
 	<h4 style="text-align: center;">Adolescentes</h4>
-	<div class="col s12 l10">
+	<div class="col s12 l10 push-l1">
 		<nav>
 			<div class="nav-wrapper blue">
 		      	<form action="<?php echo base_url('pessoa/get_adolescente') ?>" method="post">
@@ -65,4 +66,4 @@
 	</div>
 </div>
 
-
+</div>

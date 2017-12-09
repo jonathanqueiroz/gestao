@@ -6,6 +6,7 @@ class Pessoa extends CI_Controller {
         parent::__construct();
         $this->load->library('session');
         $this->load->model('pessoa_model');
+        $this->load->model('projeto_model');
         $this->load->helper('url_helper');
         $this->load->helper('url'); 
         $this->load->helper('form');
@@ -571,6 +572,55 @@ class Pessoa extends CI_Controller {
         {
             $this->pessoa_model->setPessoa_step7('1', $fk_pessoa);
             redirect('Pessoa/cadastro_adolescente/'.$fk_pessoa,'auto');
+        }
+    }
+
+    public function quantidadeAtendidos()
+    {
+        $this->form_validation->set_rules('num_docentes', 'Quantidade de Docentes', 'required');
+        $this->form_validation->set_rules('num_bolsistas', 'Quantidade de Bolsistas', 'required');
+        $this->form_validation->set_rules('num_voluntarios', 'Quantidade de Voluntários', 'required');
+        $this->form_validation->set_rules('num_atendidos', 'Quantidade de Pessoas Atendidas', 'required');
+        $data['contrib'] = $this->projeto_model->getContribuintes();
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('pessoa/contribuintes');
+            $this->load->view('templates/footer');
+        }
+        else
+        {
+            if ($this->input->post('id_contrib') != NULL) {
+               $this->projeto_model->setContribuintes($this->input->post('id_contrib'));
+            }
+            else {
+               $this->projeto_model->setContribuintes('0');
+            }
+            redirect('Pessoa/quantidadeAtendidos','refresh');
+            
+        }
+    }
+
+    public function observacoes($id)
+    {
+        $data['obs'] = $this->pessoa_model->getObservacoes($id);
+        $data['id'] = $id;
+        $this->form_validation->set_rules('obs', 'Observações', 'required');
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('pessoa/observacoes');
+            $this->load->view('templates/footer');
+        }
+        else
+        {
+            if ($this->input->post('id_obs') == NULL) {
+               $this->pessoa_model->setObservacoes('0', $id);
+            }
+            else {
+               $this->pessoa_model->setObservacoes($this->input->post('id_obs'), $id);
+            }
+            redirect('Pessoa/observacoes/'.$id,'refresh');
         }
     }
 }

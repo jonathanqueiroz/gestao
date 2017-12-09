@@ -389,7 +389,8 @@ class Pessoa_model extends CI_Model {
 
     public function getAdolescentes($nome='')
     {
-        $this->db->like('nome', $nome);        
+
+        $this->db->like('nome', $nome);       
         $query = $this->db->get('cadastroAdolescenteOne');
         return $query->result_array();
     }
@@ -443,4 +444,27 @@ class Pessoa_model extends CI_Model {
         return $query->row();
     }
 
+    public function setObservacoes($id=0, $fk_pessoa)
+    {
+        $this->load->helper('url');
+
+        $data = array(
+            'fk_pessoa' => $fk_pessoa,
+            'observacoes' => $this->input->post('obs')
+        );
+        
+        if ($id == 0) {
+            return $this->db->insert('observacoes', $data);
+        } else {
+            $this->db->where('id_obs', $id);
+            return $this->db->update('observacoes', $data);
+        }
+    }
+    
+    public function getObservacoes($id)
+    {
+        $this->db->where('fk_pessoa', $id);
+        $query = $this->db->get('observacoes');
+        return $query->row();
+    }
 }

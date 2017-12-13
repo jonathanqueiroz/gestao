@@ -122,7 +122,7 @@ class Pessoa_model extends CI_Model {
             'estado_civil' => $this->input->post('estado_civil'),
             'acompanhante' => $this->input->post('acompanhante'),
             'sexo' => $this->input->post('sexo'),
-            'data_criacao' => date("Y-m-d H:i:s")
+            'data_atualizacao' => date("Y-m-d H:i:s")
         );
         
         if ($id == 0) {

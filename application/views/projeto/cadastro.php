@@ -1,67 +1,90 @@
- <?php echo validation_errors(); ?>
+ <script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script> 
 <?php if (isset($error)) {
     echo $error;
     } ?>
- 
-<?php echo form_open_multipart(base_url('projeto/create')); ?>  
+<?php echo form_open_multipart(base_url('projeto/cadastrar')); ?>  
 
-    <div class="grid-x grid-padding-x form_cadastro form_box">
-        <div class="small-12 cell">
-            <h2 style="text-align: center;"><?php echo $title; ?></h2>
-            <br>
+    <div class="row passo1 form_cadastro form_box">
+        <div class="col s12"><h4>Cadastrar Projeto</h4><br></div>
+        <div class="col s12 l6">
+            <label for="titulo">Titulo: <br></label>
+            <input type="text" name="titulo" />
         </div>
-        <div class="small-6 cell">
-            <label for="titulo">Título:</label>
-            <input type="text" name="titulo" required="required" placeholder="Titulo" />
+        <div class="col s12 l2">
+            <label for="num_registro">Número de Registro: <br></label>
+            <input type="text" name="num_registro" />
         </div>
-        <br><br>
-        <div class="small-6 cell">
-            <label for="orientador">Orientador: <br></label>
-            <input type="text" name="orientador" required="required" />
+        <div class="col s12 l2">
+            <label for="data_inicio">Data de Início: <br></label>
+            <input type="date" name="data_inicio" />
         </div>
-        <br><br>
-        <div class="small-6 cell">
-            <label for="descricao">Descrição: <br></label>
-            <textarea name="descricao" required="required"></textarea>
+        <div class="col s12 l2">
+            <label for="data_termino">Previsão de Término: <br></label>
+            <input type="date" name="data_termino" />
         </div>
-        <br><br>
-        <div class="small-6 cell">
+        <div class="col s12 l4">
+            <label for="professor">Professor Coordenador: <br></label></td>
+            <select name="professor" id="">
+                <option value="" disabled selected>Selecione</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+        <div class="col s12 l4">
             <label for="departamento">Departamento: <br></label>
-            <input type="text" name="departamento" required="required" />
+            <select name="departamento" id="">
+                <option value="" disabled selected>Selecione</option>
+                <option value="1">1</option>
+            </select>
         </div>
-        <br><br>
-        <div class="small-6 cell">
+        <div class="col s12 l4">
             <label for="modalidade">Modalidade: <br></label>
-            <input type="text" name="modalidade" required="required" />
-         </div>
-        <br><br>
-        <div class="small-6 cell">
+            <select name="modalidade" id="">
+                <option value="" disabled selected>Selecione</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+        <div class="col s12 l12"></div>
+        <div class="col s12 l4">
+            <label for="descricao">Descrição: <br></label>
+            <textarea name="descricao" class="materialize-textarea" id="" rows="10"></textarea>
+        </div>
+        <div class="col s12 l4">
             <label for="publico_alvo">Público Alvo: <br></label>
-            <input type="text" name="publico_alvo" required="required" />
+            <textarea name="publico_alvo" class="materialize-textarea" id="" rows="10"></textarea>
         </div>
-        <br><br>
-        <div class="small-6 cell">
+        <div class="col s12 l4">
             <label for="justificativa">Justificativa: <br></label>
-            <textarea name="justificativa" required="required" ></textarea>
+            <textarea name="justificativa" class="materialize-textarea" id="" rows="10"></textarea>
         </div>
-        <br><br>
-        <div class="small-6 cell">
+        <div class="col s12 l4">
             <label for="objetivos">Objetivos: <br></label>
-            <textarea name="objetivos" required="required"></textarea>
+            <textarea name="objetivos" class="materialize-textarea" id="" rows="10"></textarea>
         </div>
-        <br><br>
-        <div class="small-6 cell">
+        <div class="col s12 l4">
             <label for="metodologia">Metodologia: <br></label>
-            <textarea  name="metodologia" required="required" ></textarea>
+            <textarea name="metodologia" class="materialize-textarea" id="" rows="10"></textarea>
         </div>
-        <br><br>
-        <div class="small-6 cell">
+        <div class="col s12 l12"></div>
+        <div class="col s12 l4">
             <label for="cronograma">Cronograma: <br></label>
-            <input type="file" name="cronograma"  />
+            <div class="file-field input-field">
+                <div class="btn blue">
+                    <span>Arquivo</span>
+                    <input type="file" name="cronograma" >
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
         </div>
-        <br><br>
-        <div class="small-6 cell">
-            <input type="submit" name="submit" value="Cadastrar"  class="button large color_button" />
+        <div class="col l12 s12">
+            <br>
+            <button class="btn waves-effect waves-light blue" type="submit">Salvar</button>
+            <br><br>
         </div>
-    </div>   
 </form>
+    </div>   

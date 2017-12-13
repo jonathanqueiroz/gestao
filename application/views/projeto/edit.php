@@ -1,42 +1,89 @@
-<h2><?php echo $title; ?></h2>
- 
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
 <?php echo validation_errors(); ?>
  
-<?php echo form_open_multipart(base_url('projeto/edit/'.$projeto_item['id_projeto'])); ?>  
+<?php echo form_open_multipart(base_url('projeto/editar/'.$projeto_item['id_projeto'])); ?>  
 
-    <div>
-        <label for="titulo">Titulo: <br></label>
-        <td><input type="text" name="titulo" value="<?php echo $projeto_item['titulo']?>" />
-        <br><br>
-        <label for="orientador">Orientador: <br></label></td>
-        <input type="text" name="orientador" value="<?php echo $projeto_item['orientador']?>" />
-        <br><br>
-        <label for="descricao">Descrição: <br></label>
-        <td><input type="text" name="descricao" value="<?php echo $projeto_item['descricao']?>" />
-        <br><br>
-        <label for="departamento">Departamento: <br></label>
-        <td><input type="text" name="departamento" value="<?php echo $projeto_item['departamento']?>" />
-        <br><br>
-        <label for="modalidade">Modalidade: <br></label>
-        <td><input type="text" name="modalidade" value="<?php echo $projeto_item['modalidade']?>" />
-        <br><br>
-        <label for="publico_alvo">Público Alvo: <br></label>
-        <td><input type="text" name="publico_alvo" value="<?php echo $projeto_item['publico_alvo']?>" />
-        <br><br>
-        <label for="justificativa">Justificativa: <br></label>
-        <td><input type="text" name="justificativa" value="<?php echo $projeto_item['justificativa']?>" />
-        <br><br>
-        <label for="objetivos">Objetivos: <br></label>
-        <td><input type="text" name="objetivos" value="<?php echo $projeto_item['objetivos']?>" />
-        <br><br>
-        <label for="metodologia">Metodologia: <br></label>
-        <td><input type="text" name="metodologia" value="<?php echo $projeto_item['metodologia']?>" />
-        <br><br>
-        <label for="cronograma">Cronograma: <br></label>
-        <td><input type="file" name="cronograma" />
-        <br><br>
-        
-        <input type="submit" name="submit" value="Cadastrar" />
-        </tr>
-    </div>   
+    <div class="row passo1 form_cadastro form_box">
+        <div class="col s12"><h4>Editar Projeto</h4><br></div>
+        <div class="col s12 l6">
+            <label for="titulo">Titulo: <br></label>
+            <input type="text" name="titulo" value="<?php echo $projeto_item['titulo']?>" />
+        </div>
+        <div class="col s12 l2">
+            <label for="num_registro">Número de Registro: <br></label>
+            <input type="text" name="num_registro" value="<?php echo $projeto_item['num_registro']?>"/>
+        </div>
+        <div class="col s12 l2">
+            <label for="data_inicio">Data de Início: <br></label>
+            <input type="date" name="data_inicio" value="<?php echo $projeto_item['data_inicio']?>"/>
+        </div>
+        <div class="col s12 l2">
+            <label for="data_termino">Previsão de Término: <br></label>
+            <input type="date" name="data_termino" value="<?php echo $projeto_item['data_termino']?>" />
+        </div>
+        <div class="col s12 l4">
+            <label for="professor">Professor Coordenador: <br></label></td>
+            <select name="professor" id="">
+                <option value="" disabled selected>Selecione</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+        <div class="col s12 l4">
+            <label for="departamento">Departamento: <br></label>
+            <select name="departamento" id="">
+                <option value="" disabled selected>Selecione</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+        <div class="col s12 l4">
+            <label for="modalidade">Modalidade: <br></label>
+            <select name="modalidade" id="">
+                <option value="" disabled selected>Selecione</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+        <div class="col s12 l12"></div>
+        <div class="col s12 l4">
+            <label for="descricao">Descrição: <br></label>
+            <textarea name="descricao" class="materialize-textarea" id="" rows="10"><?php echo $projeto_item['descricao'];?></textarea>
+        </div>
+        <div class="col s12 l4">
+            <label for="publico_alvo">Público Alvo: <br></label>
+            <textarea name="publico_alvo" class="materialize-textarea" id="" rows="10"><?php echo $projeto_item['publico_alvo']?></textarea>
+        </div>
+        <div class="col s12 l4">
+            <label for="justificativa">Justificativa: <br></label>
+            <textarea name="justificativa" class="materialize-textarea" id="" rows="10"><?php echo $projeto_item['justificativa']?></textarea>
+        </div>
+        <div class="col s12 l4">
+            <label for="objetivos">Objetivos: <br></label>
+            <textarea name="objetivos" class="materialize-textarea" id="" rows="10"><?php echo $projeto_item['objetivos']?></textarea>
+        </div>
+        <div class="col s12 l4">
+            <label for="metodologia">Metodologia: <br></label>
+            <textarea name="metodologia" class="materialize-textarea" id="" rows="10"><?php echo $projeto_item['metodologia']?></textarea>
+        </div>
+        <div class="col s12 l12"></div>
+        <div class="col s12 l4">
+            <label for="cronograma">Cronograma: <br></label>
+            <div class="file-field input-field">
+                <div class="btn blue">
+                    <span>Arquivo</span>
+                    <input type="file" name="cronograma" >
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="col l12 s12">
+            <br>
+            <button class="btn waves-effect waves-light blue" type="submit">Salvar</button>
+            <br><br>
+        </div>
 </form>
+    </div>   

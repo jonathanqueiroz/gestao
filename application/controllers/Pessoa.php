@@ -365,7 +365,7 @@ class Pessoa extends CI_Controller {
         }
     }
 
-    public function adolescentes()
+    public function jovens()
     {
         $data['adolescentes'] = $this->pessoa_model->getAdolescentes();
         $this->load->view('templates/header', $data);
@@ -383,7 +383,7 @@ class Pessoa extends CI_Controller {
             $nome = $this->input->post('nome');
             $data['adolescentes'] = $this->pessoa_model->getAdolescentes($nome);
             $this->session->set_tempdata('resultado', $data['adolescentes']);
-            redirect('Pessoa/adolescentes','refresh');
+            redirect('Pessoa/jovens','refresh');
             /*$this->load->view('templates/header', $data);
             $this->load->view('projeto/adolescentes');
             $this->load->view('templates/footer'); */

@@ -24,7 +24,7 @@
                         </a>
                         <ul class="right hide-on-med-and-down">
                             <b><li><a href="<?php echo site_url('projeto'); ?>">Home</a></li>
-                                <li><a href="<?php echo site_url('pessoa/adolescentes'); ?>">Pessoas</a></li>
+                                <li><a href="<?php echo site_url('pessoa/jovens'); ?>">Pessoas</a></li>
                                 <li><a href="<?php echo site_url('Pessoa/cadastro_adolescente'); ?>">Cadastrar Jovem</a></li>
                                 <?php if (!isset($_SESSION['usuario'])) 
                                 { ?>
@@ -40,7 +40,7 @@
             </div>
             <ul class="side-nav" id="mobile-demo">
                 <b><li><a href="<?php echo site_url('projeto'); ?>">Home</a></li>
-                <li><a href="<?php echo site_url('pessoa/adolescentes'); ?>">Pessoas</a></li>
+                <li><a href="<?php echo site_url('pessoa/jovens'); ?>">Pessoas</a></li>
                 <li><a href="<?php echo site_url('Pessoa/cadastro_adolescente'); ?>">Cadastrar Jovem</a></li>
                 <?php if (!isset($_SESSION['usuario'])) 
                 { ?>

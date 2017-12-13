@@ -5,7 +5,6 @@
 </script>
 <?php // echo form_open('Pessoa/dados_adolescente'); ?>
 <form action="<?php echo base_url('Pessoa/dados_adolescente'); ?>" method="post" name="form1" id="form1">
-	<h2>Cadastro Pessoa</h2>
 	<?php echo validation_errors(); ?>
 	<div class="row passo1 form_cadastro form_box">
 			<br>

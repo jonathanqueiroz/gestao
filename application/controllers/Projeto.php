@@ -9,6 +9,10 @@ class Projeto extends CI_Controller {
         $this->load->model('pessoa_model');
         $this->load->helper('url_helper');
         $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['tipo_usuario'] != 1) {
+            redirect('usuario/login','auto');
+        }
     }
  
     public function index()
@@ -52,6 +56,8 @@ class Projeto extends CI_Controller {
     
     public function cadastrar()
     {
+        $data['professores'] = $this->instituicao_model->getProfessores();
+        $data['departamentos'] = $this->instituicao_model->getDepartamento();
         $this->load->library('form_validation');
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'pdf|csv';
@@ -91,11 +97,11 @@ class Projeto extends CI_Controller {
         $config['max_size'] = 15000000;
         $this->load->library('upload', $config);
 
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        $data['professores'] = $this->instituicao_model->getProfessores();
+        $data['departamentos'] = $this->instituicao_model->getDepartamento();
         
         $this->form_validation->set_rules('titulo', 'Titulo', 'required');
+        
 
         $data['title'] = 'Editar projeto';        
         $data['projeto_item'] = $this->projeto_model->get_projeto_by_id($id);
@@ -146,7 +152,7 @@ class Projeto extends CI_Controller {
         else
         {
             $id_colaborador = $this->projeto_model->setAluno($id);
-            redirect('Projeto/cadastrarAluno','auto');
+            redirect('projeto/cadastrarAluno','auto');
         }
     }
 
@@ -169,13 +175,13 @@ class Projeto extends CI_Controller {
         else
         {
             $this->projeto_model->setAluno($id);
-            redirect('Projeto/atualizarAluno/'.$id,'auto');
+            redirect('projeto/atualizarAluno/'.$id,'auto');
         }
     }
 
     public function alunos()
     {
-        $data['colaboradores'] = $this->projeto_model->getAlunos();
+        $data['alunos'] = $this->projeto_model->getAlunos();
         $this->load->view('templates/header', $data);
         $this->load->view('projeto/alunos');
         $this->load->view('templates/footer');
@@ -191,7 +197,7 @@ class Projeto extends CI_Controller {
             $data['alunos'] = $this->projeto_model->getAlunos($nome);
             $this->session->set_tempdata('resultado', $data['alunos']);
         }
-            redirect('Projeto/alunos','refresh');
+            redirect('projeto/alunos','refresh');
             /*$this->load->view('templates/header', $data);
             $this->load->view('projeto/adolescentes');
             $this->load->view('templates/footer'); */
@@ -202,7 +208,8 @@ class Projeto extends CI_Controller {
         $data['professores'] = $this->instituicao_model->getProfessores();
         $data['alunos'] = $this->projeto_model->getAlunos();
         $data['voluntarios'] = $this->projeto_model->getAlunos();
-        $this->form_validation->set_rules('professor', 'Professor', 'required');
+        //$data['voluntarios'] = $this->projeto_model->getProjetoColab();
+        $this->form_validation->set_rules('professor', 'Professor', 'trim');
 
         if ($this->form_validation->run() == FALSE)
         {   
@@ -212,8 +219,34 @@ class Projeto extends CI_Controller {
         }
         else
         {
-            $this->projeto_model->setColaboradoresProjeto($id);
-            redirect('Projeto','refresh');
+            if($id == 1)
+                $this->projeto_model->setColaboradoresProjProf('0',$id);
+            elseif($id == 2)
+                $this->projeto_model->setColaboradoresProjBol('0',$id);
+            else
+                $this->projeto_model->setColaboradoresProjVol('0',$id);
+            redirect('projeto/colaboradores_projeto/'.$id,'refresh');
+        }
+    }
+
+    public function editar_colaboradores_projeto($id=0)
+    {
+        $data['professores_id'] = $this->projeto_model->getProjetoColabProf();
+        $data['alunos_id'] = $this->projeto_model->getProjetoColabBol();
+        $data['voluntarios_id'] = $this->projeto_model->getProjetoColabVol();
+        $this->form_validation->set_rules('bolsitas', 'Professor', 'trim');
+        if ($this->form_validation->run() == FALSE)
+        {   
+            $this->load->view('templates/header');
+            $this->load->view('projeto/editar_projeto_colaboradores', $data);
+            $this->load->view('templates/footer');
+        }
+        else
+        {
+            
+            
+            $this->projeto_model->setColaboradoresProjeto('1');
+            //redirect('Projeto','refresh');
         }
     }
 }

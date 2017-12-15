@@ -11,6 +11,9 @@ class Pessoa extends CI_Controller {
         $this->load->helper('url'); 
         $this->load->helper('form');
         $this->load->library('form_validation');
+        if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['tipo_usuario'] != 1) {
+            redirect('usuario/login','auto');
+        }
     }
  
     public function index()

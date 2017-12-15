@@ -17,9 +17,7 @@ class Usuario extends CI_Controller {
 	// List all your items
 	public function index()
 	{
-		$this->load->view('templates/header');
-		$this->load->view('templates/login');
-		$this->load->view('templates/footer');
+		redirect('usuario/login','auto');
 	}
 
 	public function cadastro()
@@ -49,15 +47,14 @@ class Usuario extends CI_Controller {
 
 	public function login()
 	{
+        //var_dump($_SESSION['usuario']);
         if (!isset($_SESSION['usuario'])) {
 	        $login = $this->input->post('login');
 	        $senha = md5($this->input->post('senha'));
 			if ($data = $this->pessoa_model->get_usuario($login, $senha)) {
 				$this->session->set_userdata('usuario',$data);
 				if ($data['tipo_usuario'] == 1) {
-					$this->load->view('templates/header');
-					$this->load->view('pessoa/success', $data);
-					$this->load->view('templates/footer');
+					redirect('projeto','auto');
 				}
 				elseif ($data['tipo_usuario'] == 2) {
 					$this->load->view('templates/header');
@@ -72,23 +69,19 @@ class Usuario extends CI_Controller {
 			}
 			else {
 				$this->load->view('templates/header');
-				$this->load->view('templates/index');
+				$this->load->view('templates/login');
 				$this->load->view('templates/footer');
 			}
 		}
 		else{
-			$this->load->view('templates/header');
-			$this->load->view('teste');
-			$this->load->view('templates/footer');	
+			redirect('usuario/logoff','auto');
 		}
 	}
 
 	public function logoff( $id = NULL )
 	{
 		$this->session->unset_userdata('usuario');
-		$this->load->view('templates/header');
-		$this->load->view('templates/index');
-		$this->load->view('templates/footer');
+		redirect('usuario/login','auto');
 
 	}
 

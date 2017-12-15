@@ -3,69 +3,154 @@
     $('select').material_select();
   });
 </script> 
-<?php echo form_open(base_url('projeto/colaboradores_projeto')); ?>  
+<style>
+    .tabs .tab a.active {
+  color: #039be5;
+}
 
-    <div class="row passo1 form_cadastro form_box">
-        <div class="col s12"><h4>Cadastrar Colaboradores</h4><br>
-            <p>* Selecione a(s) pessoa(s) em cada bloco e adicione a carga horária e data de entrada correspondente, em caso de cargas horárias e datas diferentes entre membros de um mesmo bloco, adicione um a um. </p><br></div>
-        <div class="col s12 l4">
-            <label for="professores">Professor(es): <br></label>
-            <select multiple name="professores" id="">
-                <option value="" disabled selected>Selecione</option>
-                <?php foreach ($professores as $professor) { ?>
-                    <option value="<?php echo $professor['id_professor']; ?>"><?php echo $professor['nome']; ?></option>
-                <?php } ?>
-            </select>
+.tabs .tab a:hover {
+  color: #039be5;
+}
+
+.tabs .tab a {
+  color: #039be5;
+}
+.tab a.active{
+    color:#039be5;
+}
+
+.indicator{
+    color:#039be5;
+}
+
+.disabled a{
+  color: grey;
+}
+.tabs {
+    overflow: -moz-scrollbars-none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+</style>
+<div class="row">
+    <div class="col s12 l12">
+      <ul class="tabs tabs-fixed-width" id="tabs-swipe-demo">
+        <div class="indicator blue" style="z-index:1"></div>
+        <li class="tab col s3"><a href="#test-swipe-1">Professores</a></li>
+        <li class="tab col s3"><a href="#test2">Bolsistas</a></li>
+        <li class="tab col s3"><a href="#test3">Voluntários</a></li>
+      </ul>
+      <br>
+    </div>
+</div>
+<div class="row">  
+    <div id="test-swipe-1" class="col s12 l12">
+        <div class="row passo1 form_cadastro form_box">
+            <?php echo form_open('Projeto/colaboradores_projeto/1'); ?>
+            <div class="col s12">
+                <h4>Cadastrar Colaboradores</h4><br>
+            </div>
+            <div class="col s12 l3">
+                <label for="professor">Professor: <br></label>
+                <select name="professor" id="">
+                    <option value="" disabled selected>Selecione</option>
+                    <?php foreach ($professores as $professor) { ?>
+                        <option value="<?php echo $professor['id_professor']; ?>"><?php echo $professor['nome']; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="col s12 l3">
+                 <label for="professores">Carga Horária do Professor: <br></label>
+                 <input type="number" name="carga_professor" placeholder="Carga Horária do Professor" />
+            </div>
+            <div class="col s12 l3">
+                 <label for="data_professor">Data de Entrada do Professor: <br></label>
+                 <input type="date" name="data_professor" />
+            </div>
+            <div class="col s12 l3">
+                 <label for="data_professor">Data de Saída do Professor: <br></label>
+                 <input type="date" name="data_saida_professor" disabled= />
+            </div>
+            <div class="col l12 s12">
+                <br>
+                <button class="btn waves-effect waves-light blue" type="submit">Salvar</button>
+                <br><br>
+            </div>
+            <?php echo form_close(); ?>
         </div>
-        <div class="col s12 l4">
-             <label for="professores">Carga Horária Professor(es): <br></label>
-             <input type="number" name="carga_horaria_prof" placeholder="Carga Horária Professor(es)" />
+    </div>
+
+    <div id="test2" class="col s12 l12">
+        <div class="row passo1 form_cadastro form_box">
+            <?php echo form_open('Projeto/colaboradores_projeto/2'); ?>
+            <div class="col s12">
+                <h4>Cadastrar Colaboradores</h4><br>
+            </div>
+            <div class="col s12 l3">
+                <label for="bolsita">Bolsita: <br></label>
+                <select  name="bolsista" id="">
+                    <option value="" disabled selected>Selecione</option>
+                    <?php foreach ($alunos as $aluno) { ?>
+                        <option value="<?php echo $aluno['id_aluno']; ?>"><?php echo $aluno['nome']; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="col s12 l3">
+                 <label for="carga_bolsista">Carga Horária do Bolsita: <br></label>
+                 <input type="number" name="carga_bolsista" placeholder="Carga Horária do Bolsita" />
+            </div>
+            <div class="col s12 l3">
+                 <label for="data_bolsita">Data de Entrada do Bolsita: <br></label>
+                 <input type="date" name="data_bolsista" />
+            </div>
+            <div class="col s12 l3">
+                 <label for="data_professor">Data de Saída do Professor: <br></label>
+                 <input type="date" name="data_saida_professor" disabled= />
+            </div>
+            <div class="col l12 s12">
+                <br>
+                <button class="btn waves-effect waves-light blue" type="submit">Salvar</button>
+                <br><br>
+            </div>
+            <?php echo form_close(); ?>
         </div>
-        <div class="col s12 l3">
-             <label for="professores">Data de Entrada Bolsita(s): <br></label>
-             <input type="date" name="data_prof" />
+    </div>
+    <div id="test3" class="col s12 l12">
+        <div class="row passo1 form_cadastro form_box">
+            <?php echo form_open('Projeto/colaboradores_projeto/3'); ?>
+            <div class="col s12">
+                <h4>Cadastrar Colaboradores</h4><br>
+            </div>
+            <div class="col s12 l3">
+                <label for="voluntario">Voluntário: <br></label>
+                <select name="voluntario" id="">
+                    <option value="" disabled selected>Selecione</option>
+                    <?php foreach ($voluntarios as $voluntario) { ?>
+                        <option value="<?php echo $voluntario['id_aluno']; ?>"><?php echo $voluntario['nome']; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="col s12 l3">
+                 <label for="carga_voluntario">Carga Horária do Voluntário: <br></label>
+                 <input type="number" name="carga_voluntario" placeholder="Carga Horária do Voluntário" />
+            </div>
+            <div class="col s12 l3">
+                <label for="data_voluntario">Data de Entrada do Voluntário: <br></label>
+                <input type="date" name="data_voluntario" />
+            </div>
+            <div class="col s12 l3">
+                 <label for="data_professor">Data de Saída do Professor: <br></label>
+                 <input type="date" name="data_saida_professor" disabled= />
+            </div>
+            <div class="col s12 l12"></div>
+            <div class="col l12 s12">
+                <br>
+                <button class="btn waves-effect waves-light blue" type="submit">Salvar</button>
+                <br><br>
+            </div>
+            <?php echo form_close(); ?>
         </div>
-        <div class="col s12"></div>
-        <div class="col s12 l4">
-            <label for="bolsitas">Bolsita(s): <br></label>
-            <select multiple name="bolsitas" id="">
-                <option value="" disabled selected>Selecione</option>
-                <?php foreach ($alunos as $aluno) { ?>
-                    <option value="<?php echo $aluno['id_aluno']; ?>"><?php echo $aluno['nome']; ?></option>
-                <?php } ?>
-            </select>
-        </div>
-        <div class="col s12 l4">
-             <label for="professores">Carga Horária Bolsita(s): <br></label>
-             <input type="number" name="carga_horaria_prof" placeholder="Carga Horária Bolsita(s)" />
-        </div>
-        <div class="col s12 l3">
-             <label for="professores">Data de Entrada Bolsita(s): <br></label>
-             <input type="date" name="data_bolsita" />
-        </div>
-        <div class="col s12"></div>
-        <div class="col s12 l4">
-            <label for="voluntarios">Voluntário(s): <br></label>
-            <select multiple name="voluntarios" id="">
-                <option value="" disabled selected>Selecione</option>
-                <?php foreach ($voluntarios as $voluntario) { ?>
-                    <option value="<?php echo $voluntario['id_aluno']; ?>"><?php echo $voluntario['nome']; ?></option>
-                <?php } ?>
-            </select>
-        </div>
-        <div class="col s12 l4">
-             <label for="professores">Carga Horária Voluntário(s): <br></label>
-             <input type="number" name="carga_voluntario" placeholder="Carga Horária Voluntário(s)" />
-        </div>
-        <div class="col s12 l3">
-            <label for="professores">Data de Entrada Bolsita(s): <br></label>
-            <input type="date" name="data_prof" />
-        </div>
-        <div class="col s12 l12"></div>
-        <div class="col l12 s12">
-            <br>
-            <button class="btn waves-effect waves-light blue" type="submit">Salvar</button>
-            <br><br>
-        </div>
-</form>
-    </div>   
+    </div>
+</div>
+

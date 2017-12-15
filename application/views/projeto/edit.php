@@ -25,21 +25,29 @@
             <label for="data_termino">Previsão de Término: <br></label>
             <input type="date" name="data_termino" value="<?php echo $projeto_item['data_termino']?>" />
         </div>
-        <div class="col s12 l4">
+        <div class="col s12 l3">
+            <label for="verba_inicial">Verba Inicial: <br></label>
+            <input type="number" name="verba_inicial" step="0.01"  value="<?php echo $projeto_item['verba_inicial']?>" />
+        </div>
+        <div class="col s12 l3">
             <label for="professor">Professor Coordenador: <br></label></td>
             <select name="professor" id="">
                 <option value="" disabled selected>Selecione</option>
-                <option value="1">1</option>
+                <?php foreach ($professores as $professor) { ?>
+                <option value="<?php echo $professor['id_professor'];?>"><?php echo $professor['nome'];?></option>
+                <?php } ?>
             </select>
         </div>
-        <div class="col s12 l4">
+        <div class="col s12 l3">
             <label for="departamento">Departamento: <br></label>
             <select name="departamento" id="">
                 <option value="" disabled selected>Selecione</option>
-                <option value="1">1</option>
+                <?php foreach ($departamentos as $departamento) { ?>
+                <option value="<?php echo $departamento['id_departamento'];?>"><?php echo $departamento['nome'];?></option>
+                <?php } ?>
             </select>
         </div>
-        <div class="col s12 l4">
+        <div class="col s12 l3">
             <label for="modalidade">Modalidade: <br></label>
             <select name="modalidade" id="">
                 <option value="" disabled selected>Selecione</option>

@@ -8,6 +8,9 @@ class Instituicao extends CI_Controller {
         $this->load->model('instituicao_model');
         $this->load->helper('url_helper');
         $this->load->helper(array('form', 'url'));
+        if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['tipo_usuario'] != 1) {
+            redirect('usuario/login','auto');
+        }
     }
  
     public function index()
@@ -24,6 +27,7 @@ class Instituicao extends CI_Controller {
     // Add a new item
     public function cadastrarInstituicao($id=0)
     {
+        $data['estados'] = $this->instituicao_model->getEstados();
         $data['title'] = 'Cadastrar Instituição';
         $this->form_validation->set_rules('nome', 'Nome', 'required');
         if ($this->form_validation->run() === FALSE)
@@ -46,6 +50,7 @@ class Instituicao extends CI_Controller {
     public function atualizarInstituicao( $id = 1 )
     {
         $data['id'] = $id;
+        $data['estados'] = $this->instituicao_model->getEstados();
         $data['instituicao'] = $this->instituicao_model->getInstituicao($id);
         $this->form_validation->set_rules('nome', 'Nome', 'required');
          if ($this->form_validation->run() === FALSE)
@@ -88,7 +93,9 @@ class Instituicao extends CI_Controller {
      // Add a new item
     public function cadastrarProfessor($id=0)
     {
-        $data['title'] = 'Cadastrar Instituição';
+        $data['departamentos'] = $this->instituicao_model->getDepartamento();
+        $data['estados'] = $this->instituicao_model->getEstados();
+        $data['situacao_contratual'] = $this->instituicao_model->getSituacaoContratual();
         $this->form_validation->set_rules('nome', 'Nome', 'required');
         if ($this->form_validation->run() === FALSE)
         {

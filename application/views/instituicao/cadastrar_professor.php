@@ -53,8 +53,9 @@
 				<label for="uf">UF:</label>	
 				<select name="uf" id="uf">
 				<option value="" disabled="disabled" selected="selected">Selecione</option>
-				<option value="1">Rio Grande do Norte</option>
-				<option value="2">Mato Grosso do Sul</option>
+				<?php foreach ($estados as $estado) { ?>
+					<option value="<?php echo $estado['id_estado'];?>"><?php echo $estado['sigla'];?></option>
+					<?php } ?>
 				</select>
 			</div>
 			<div class="col s12 l2 " >
@@ -77,15 +78,21 @@
 			<div class="col s12 l4 ">
 				<label for="departamento">Departamento:</label>	
 				<select name="departamento">
-				<option value="" disabled="disabled" selected="selected">Selecione</option>
-				<option value="1">Departamento de Ciências Exatas e Tecnológicas</option>
-				<option value="2">2</option>
+					<option value="" disabled="disabled" selected="selected">Selecione</option>
+					<?php foreach ($departamentos as $departamento) { ?>
+					<option value="<?php echo $departamento['id_departamento'];?>"><?php echo $departamento['nome'];?></option>
+					<?php } ?>
 				</select>
 			</div>
 			
 			<div class="col s12 l3 " >
 				<label for="situacao">Situação Contratual:</label>	
-				<input type="text" name="situacao" placeholder="Tipo de Bolsa"  />
+				<select name="situacao">
+				<option value="" disabled="disabled" selected="selected">Selecione</option>
+				<?php foreach ($situacao_contratual as $situacao) { ?>
+					<option value="<?php echo $situacao['id_situacao'];?>"><?php echo $situacao['nome'];?></option>
+					<?php } ?>
+				</select>
 			</div>
 			<div class="col s12 l5 " >
 				<label for="area">Área de Atuação:</label>	

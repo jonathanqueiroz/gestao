@@ -42,6 +42,7 @@ class Projeto_model extends CI_Model {
             'justificativa' => $this->input->post('justificativa'),
             'objetivos' => $this->input->post('objetivos'),
             'metodologia' => $this->input->post('metodologia'),
+            'verba_inicial' => $this->input->post('verba_inicial'),
             'cronograma' => $this->session->flashdata('upload')
         );
         
@@ -101,8 +102,7 @@ class Projeto_model extends CI_Model {
             'semestre' => $this->input->post('semestre'),
             'tipo_bolsa' => $this->input->post('tipo_bolsa'),
             'periodo_entrada' => $this->input->post('periodo_entrada'),
-            'fk_projeto' => $this->input->post('fk_projeto'),
-            'periodo_saida' => $this->input->post('periodo_saida')           
+            'periodo_saida' => $this->input->post('periodo_saida')
         );
         
         if ($id == 0) {
@@ -126,6 +126,86 @@ class Projeto_model extends CI_Model {
         $this->db->like('nome', $text);  
         $this->db->or_like('cpf', $text);      
         $query = $this->db->get('alunos');
+        return $query->result_array();
+    }
+
+    public function setColaboradoresProjProf($opcao=0,$id=0)
+    {
+        $this->load->helper('url');
+        $data = array(
+            'fk_professor' => $this->input->post('professor'),
+            'carga_horaria' => $this->input->post('carga_professor'),
+            'data_entrada' => $this->input->post('data_professor')           
+        );
+        
+        if ($opcao == 0) {
+            return $this->db->insert('projeto_colaboradores', $data);
+        } else {
+            $this->db->where('id_projeto_colaborador', $id);
+            return $this->db->update('projeto_colaboradores', $data);
+        }
+    }    
+    public function setColaboradoresProjBol($opcao=0,$id=0)
+    {
+        $this->load->helper('url');
+        $data = array(
+            'fk_aluno' => $this->input->post('bolsista'),
+            'carga_horaria' => $this->input->post('carga_bolsista'),
+            'data_entrada' => $this->input->post('data_bolsista')           
+        );
+        
+        if ($opcao == 0) {
+            return $this->db->insert('projeto_colaboradores', $data);
+        } 
+        else {
+            $this->db->where('id_projeto_colaborador', $id);
+            return $this->db->update('projeto_colaboradores', $data);
+        }
+    }
+    public function setColaboradoresProjVol($opcao=0,$id=0)
+    {
+        $this->load->helper('url');
+        $data = array(
+            'fk_voluntario' => $this->input->post('voluntario'),
+            'carga_horaria' => $this->input->post('carga_voluntario'),
+            'data_entrada' => $this->input->post('data_voluntario')           
+        );
+        
+        if ($opcao == 0) {
+            return $this->db->insert('projeto_colaboradores', $data);
+        } else {
+            $this->db->where('id_projeto_colaborador', $id);
+            return $this->db->update('projeto_colaboradores', $data);
+        }
+    }
+
+    public function getProjetoColabVol()
+    {
+        $this->db->where('fk_voluntario > ', '0');
+        $this->db->select('nome, fk_voluntario, carga_horaria, data_entrada, data_saida');
+        $this->db->from('projeto_colaboradores');
+        $this->db->join('alunos', 'fk_voluntario  = id_aluno');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function getProjetoColabProf()
+    {
+        $this->db->where('fk_professor > ', '0');
+        $this->db->select('nome, fk_professor, carga_horaria, data_entrada, data_saida');
+        $this->db->from('projeto_colaboradores');
+        $this->db->join('professores', 'fk_professor  = id_professor');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+        public function getProjetoColabBol()
+    {
+        $this->db->where('fk_aluno > ', '0');
+        $this->db->select('nome, fk_aluno, carga_horaria, data_entrada, data_saida');
+        $this->db->from('projeto_colaboradores');
+        $this->db->join('alunos', 'fk_aluno  = id_aluno');
+        $query = $this->db->get();
         return $query->result_array();
     }
 }

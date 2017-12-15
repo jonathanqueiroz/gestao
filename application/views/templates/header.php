@@ -23,33 +23,41 @@
                           <i class="material-icons">menu</i>
                         </a>
                         <ul class="right hide-on-med-and-down">
-                            <b><li><a href="<?php echo site_url('projeto'); ?>">Home</a></li>
-                                <li><a href="<?php echo site_url('pessoa/jovens'); ?>">Pessoas</a></li>
-                                <li><a href="<?php echo site_url('Pessoa/cadastro_adolescente'); ?>">Cadastrar Jovem</a></li>
-                                <?php if (!isset($_SESSION['usuario'])) 
-                                { ?>
-                                <li><a href="<?php echo site_url('usuario'); ?>">Login</a></li>
-                                <?php }
-                                else { ?>
-                                <li><a href="<?php echo site_url('usuario/logoff'); ?>">Logoff</a></li>
-                                <?php } ?>
+                            <b><li><a href="<?php echo site_url(''); ?>">Home</a></li>   
+                            <?php if (isset($_SESSION['usuario'])) 
+                            { ?>
+                            <li><a href="<?php echo site_url('instituicao/atualizarInstituicao'); ?>">Instituição</a></li>
+                            <li><a href="<?php echo site_url('projeto'); ?>">Projetos</a></li>
+                            <li><a href="<?php echo site_url('pessoa/jovens'); ?>">Jovens</a></li>
+                            <li><a href="<?php echo site_url('instituicao/professores'); ?>">Professores</a></li>
+                            <li><a href="<?php echo site_url('projeto/alunos'); ?>">Alunos</a></li>
+                            <li><a href="<?php echo site_url(''); ?>">Gestão</a></li>
+                            <li><a href="<?php echo site_url('usuario/logoff'); ?>">Sair</a></li>
+                            <?php }
+                            else { ?>
+                            <li><a href="<?php echo site_url('usuario/login'); ?>">Entrar</a></li>
+                            <?php } ?>
                             </b>
                         </ul>
                     </div>
                 </nav>
             </div>
             <ul class="side-nav" id="mobile-demo">
-                <b><li><a href="<?php echo site_url('projeto'); ?>">Home</a></li>
-                <li><a href="<?php echo site_url('pessoa/jovens'); ?>">Pessoas</a></li>
-                <li><a href="<?php echo site_url('Pessoa/cadastro_adolescente'); ?>">Cadastrar Jovem</a></li>
-                <?php if (!isset($_SESSION['usuario'])) 
-                { ?>
-                <li><a href="<?php echo site_url('usuario'); ?>">Login</a></li>
-                <?php }
-                else { ?>
-                <li><a href="<?php echo site_url('usuario/logoff'); ?>">Logoff</a></li>
-                <?php } ?>
-                </b>
+                <b><li><a href="<?php echo site_url(''); ?>">Home</a></li>   
+                            <?php if (isset($_SESSION['usuario'])) 
+                            { ?>
+                            <li><a href="<?php echo site_url('instituicao/atualizarInstituicao'); ?>">Instituição</a></li>
+                            <li><a href="<?php echo site_url('projeto'); ?>">Projetos</a></li>
+                            <li><a href="<?php echo site_url('pessoa/jovens'); ?>">Jovens</a></li>
+                            <li><a href="<?php echo site_url('instituicao/professores'); ?>">Professores</a></li>
+                            <li><a href="<?php echo site_url('projeto/alunos'); ?>">Alunos</a></li>
+                            <li><a href="<?php echo site_url(''); ?>">Gestão</a></li>
+                            <li><a href="<?php echo site_url('usuario/logoff'); ?>">Sair</a></li>
+                            <?php }
+                            else { ?>
+                            <li><a href="<?php echo site_url('usuario/login'); ?>">Entrar</a></li>
+                            <?php } ?>
+                            </b>
             </ul>
     
     <main class="conteudo">

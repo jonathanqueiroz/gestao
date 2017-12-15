@@ -1,14 +1,14 @@
 .toolbar_ {
-	background-color: #4caf50;
-	background-color: black;
-	color: white;
-	padding-left: 7px;
-	box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  background-color: ;
+  background-color: black;
+  color: white;
+  padding-left: 7px;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
 }
 
 .menu_toolbar a:hover, a:focus, a:active {
-    color: #4caf50;
+    color: ;
     text-decoration: none;
 }
 .menu_toolbar a {
@@ -36,13 +36,13 @@
     left: 0;
     height: 4px;
     width: 100%;
-    background-color: #4caf50;
+    background-color: ;
     transform-origin: right top;
     transform: scale(0, 1);
     transition: color 0.1s,transform 0.2s ease-out;
 }
 .menu_toolbar a:active::before {
-    background-color: #4caf50;
+    background-color: ;
 }
 .menu_toolbar a:hover::before, a:focus::before {
     transform-origin: left top;
@@ -61,31 +61,31 @@
 }
 
 .toolbar_ a {
-	color: white;
-	text-transform: uppercase;
+  color: white;
+  text-transform: uppercase;
 }
 
 .menu_toolbar p{
-	padding-top: 15px;
-	padding-left: 85px;
+  padding-top: 15px;
+  padding-left: 85px;
 }
 
 .toolbar_ a:hover {
-	color: #43a047;
+  color: #43a047;
 }
 
 
 
 .conteudo{
-	min-height: calc(100vh - 50px);
-	padding-top: 30px;
+  min-height: calc(100vh - 50px);
+  padding-top: 30px;
 }
 
 
 
 .login_box {
-	width: 400px;
-	border-style: 1px solid black;	
+  width: 400px;
+  border-style: 1px solid black;  
 }
 
 
@@ -100,13 +100,13 @@ body {
 }
 
 .login-text {
-	color: rgb(0,0,102);
-	text-transform: uppercase;
+  color: rgb(0,0,102);
+  text-transform: uppercase;
 }
 
 .texto {
-	color: rgb(0,0,102);
-	text-transform: uppercase;
+  color: rgb(0,0,102);
+  text-transform: uppercase;
   font-size: 15px;
 }
 
@@ -116,13 +116,13 @@ label {
 }
 
 .form_box {
-	background-color: white;
+  background-color: white;
   margin-right: 50px;
   margin-left: 50px;
 }
 
 .form_cadastro input, textarea{
-	border: 1px;
+  border: 1px;
 }
 
 .form_cadastro input:focus, textarea:focus{
@@ -130,5 +130,5 @@ label {
 }
 
 textarea{
-	resize: none;
+  resize: none;
 }

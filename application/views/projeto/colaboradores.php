@@ -4,7 +4,7 @@
   });
 </script>
 <?php // echo form_open('Pessoa/dados_adolescente'); ?>
-<form action="<?php echo base_url('Projeto/cadastrarAluno'); ?>" method="post" name="form1" id="form1">
+<form action="<?php echo base_url('projeto/cadastrarAluno'); ?>" method="post" name="form1" id="form1">
 	<?php echo validation_errors(); ?>
 	<div class="row passo1 form_cadastro form_box">
 			<br>
@@ -54,13 +54,6 @@
 			<div class="col s4 " style="margin-right: 10px">
 				<label for="tipo_bolsa">Tipo de Bolsa:</label>	
 				<input type="text" name="tipo_bolsa" placeholder="Tipo de Bolsa"  />
-			</div>
-			<div class="col s12 l2 " >
-				<label for="fk_projeto">Projeto de Extensão:</label>	
-				<select name="fk_projeto">
-					<option value="" disabled selected>Selecione</option>
-					<option value="1">1</option>
-				</select> 
 			</div>
 			<div class="col s12 l2 " >
 				<label for="periodo_entrada">Periodo de Entrada:</label>	

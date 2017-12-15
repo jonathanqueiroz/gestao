@@ -114,12 +114,28 @@ class Instituicao_model extends CI_Model {
 	    } */
     }
 
-    public function getDepartamento($text=0)
+    public function getDepartamento($text='')
     {
-    	/*$this->db->like('nome', $text);  
-        $this->db->or_like('cpf', $text);      
-        $query = $this->db->get('colaboradores');
-        return $query->result_array(); */
+    	$this->db->like('nome', $text);  
+        $this->db->or_like('sigla', $text); 
+        $this->db->or_like('email', $text);       
+        $query = $this->db->get('departamentos');
+        return $query->result_array(); 
+    }
+
+    public function getEstados($text='')
+    {
+    	$this->db->like('nome', $text);  
+        $this->db->or_like('sigla', $text);       
+        $query = $this->db->get('estados');
+        return $query->result_array(); 
+    }
+
+    public function getSituacaoContratual($text='')
+    {
+    	$this->db->like('nome', $text);        
+        $query = $this->db->get('situacao_contratual');
+        return $query->result_array(); 
     }
 }
 

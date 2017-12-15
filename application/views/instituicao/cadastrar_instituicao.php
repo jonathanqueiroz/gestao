@@ -48,8 +48,9 @@
 				<label for="uf">UF:</label>	
 				<select name="uf" id="uf">
 				<option value="" disabled="disabled" selected="selected">Selecione</option>
-				<option value="1">Rio Grande do Norte</option>
-				<option value="2">Mato Grosso do Sul</option>
+				<?php foreach ($estados as $estado) { ?>
+				<option value="<?php echo $estado['id_estado'];?>"><?php echo $estado['sigla'];?></option>
+				<?php } ?>
 				</select>
 			</div>
 			<div class="col s12 l2 " >

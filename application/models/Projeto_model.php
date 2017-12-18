@@ -101,8 +101,6 @@ class Projeto_model extends CI_Model {
             'curso' => $this->input->post('curso'),
             'semestre' => $this->input->post('semestre'),
             'tipo_bolsa' => $this->input->post('tipo_bolsa'),
-            'periodo_entrada' => $this->input->post('periodo_entrada'),
-            'periodo_saida' => $this->input->post('periodo_saida')
         );
         
         if ($id == 0) {
@@ -129,83 +127,126 @@ class Projeto_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function getAlunos2($id)
+    {
+        $query = $this->db->get('alunos where id_aluno NOT IN (select fk_aluno from projeto_colaboradores where fk_aluno > 0 and fk_projeto ='.$id.')');
+        return $query->result_array();
+    }
+
+    public function getAlunos3($id)
+    {
+        $query = $this->db->get('alunos where id_aluno NOT IN (select fk_voluntario from projeto_colaboradores where fk_voluntario > 0 and fk_projeto ='.$id.')');
+        return $query->result_array();
+    }
+
     public function setColaboradoresProjProf($opcao=0,$id=0)
     {
         $this->load->helper('url');
+        if($this->input->post('data_saida_professor') == ''){
+            $data['data_saida'] = NULL;
+        }
+        else{
+            $data['data_saida'] = $this->input->post('data_saida_professor');
+        }
         $data = array(
+            'fk_projeto' => $opcao,
             'fk_professor' => $this->input->post('professor'),
             'carga_horaria' => $this->input->post('carga_professor'),
-            'data_entrada' => $this->input->post('data_professor')           
+            'funcao' => $this->input->post('funcao_professor'),
+            'data_entrada' => $this->input->post('data_professor')     
         );
-        
-        if ($opcao == 0) {
+        if ($id == 0) {
             return $this->db->insert('projeto_colaboradores', $data);
         } else {
             $this->db->where('id_projeto_colaborador', $id);
+            $this->db->where('fk_professor', $data['fk_professor']);
             return $this->db->update('projeto_colaboradores', $data);
         }
-    }    
+    }   
+
     public function setColaboradoresProjBol($opcao=0,$id=0)
     {
         $this->load->helper('url');
+        if($this->input->post('data_saida_bolsista') == ''){
+            $data['data_saida'] = NULL;
+        }
+        else{
+            $data['data_saida'] = $this->input->post('data_saida_bolsista');
+        }
         $data = array(
+            'fk_projeto' => $opcao,
             'fk_aluno' => $this->input->post('bolsista'),
             'carga_horaria' => $this->input->post('carga_bolsista'),
+            'funcao' => $this->input->post('funcao_bolsista'),
             'data_entrada' => $this->input->post('data_bolsista')           
         );
-        
-        if ($opcao == 0) {
+        if ($id == 0) {
             return $this->db->insert('projeto_colaboradores', $data);
         } 
         else {
             $this->db->where('id_projeto_colaborador', $id);
+            $this->db->where('fk_aluno', $data['fk_aluno']);
             return $this->db->update('projeto_colaboradores', $data);
         }
     }
     public function setColaboradoresProjVol($opcao=0,$id=0)
     {
         $this->load->helper('url');
+        if($this->input->post('data_saida_professor') == ''){
+            $data['data_saida'] = NULL;
+        }
+        else{
+            $data['data_saida'] = $this->input->post('data_saida_professor');
+        }
         $data = array(
+            'fk_projeto' => $opcao,
             'fk_voluntario' => $this->input->post('voluntario'),
             'carga_horaria' => $this->input->post('carga_voluntario'),
-            'data_entrada' => $this->input->post('data_voluntario')           
+            'funcao' => $this->input->post('funcao_voluntario'),
+            'data_entrada' => $this->input->post('data_voluntario')          
         );
-        
-        if ($opcao == 0) {
+        if ($id == 0) {
             return $this->db->insert('projeto_colaboradores', $data);
         } else {
+            $this->db->where('fk_voluntario', $data['fk_voluntario']);
             $this->db->where('id_projeto_colaborador', $id);
             return $this->db->update('projeto_colaboradores', $data);
         }
     }
 
-    public function getProjetoColabVol()
+    public function getBolsista_Colab($id, $bolsista)
     {
-        $this->db->where('fk_voluntario > ', '0');
-        $this->db->select('nome, fk_voluntario, carga_horaria, data_entrada, data_saida');
-        $this->db->from('projeto_colaboradores');
-        $this->db->join('alunos', 'fk_voluntario  = id_aluno');
-        $query = $this->db->get();
-        return $query->result_array();
-    }
-
-    public function getProjetoColabProf()
-    {
-        $this->db->where('fk_professor > ', '0');
-        $this->db->select('nome, fk_professor, carga_horaria, data_entrada, data_saida');
-        $this->db->from('projeto_colaboradores');
-        $this->db->join('professores', 'fk_professor  = id_professor');
-        $query = $this->db->get();
-        return $query->result_array();
-    }
-
-        public function getProjetoColabBol()
-    {
-        $this->db->where('fk_aluno > ', '0');
-        $this->db->select('nome, fk_aluno, carga_horaria, data_entrada, data_saida');
+        $this->db->where('fk_projeto', $id);
+        $this->db->where('fk_aluno', $bolsista);
+        $this->db->select('nome, id_projeto_colaborador, fk_aluno, carga_horaria, data_entrada, data_saida, funcao, fk_projeto');
         $this->db->from('projeto_colaboradores');
         $this->db->join('alunos', 'fk_aluno  = id_aluno');
         $query = $this->db->get();
-        return $query->result_array();
+        return $query->row(); 
+    }
+
+
+    public function getProjetoColabBol($id)
+    {
+        $query = $this->db->get('alunos where id_aluno IN (select fk_aluno from projeto_colaboradores where fk_aluno > 0 and fk_projeto = '.$id.')');
+        return $query->result_array(); 
+    }
+
+    public function getVoluntario_Colab($id, $voluntario)
+    {
+        $this->db->where('fk_projeto', $id);
+        $this->db->where('fk_voluntario', $voluntario);
+        $this->db->select('nome, id_projeto_colaborador, fk_voluntario, carga_horaria, data_entrada, data_saida, funcao, fk_projeto');
+        $this->db->from('projeto_colaboradores');
+        $this->db->join('alunos', 'fk_voluntario  = id_aluno');
+        $query = $this->db->get();
+        return $query->row(); 
+    }
+
+
+    public function getProjetoColabVol($id)
+    {
+        $query = $this->db->get('alunos where id_aluno IN (select fk_voluntario from projeto_colaboradores where fk_voluntario > 0 and fk_projeto = '.$id.')');
+        return $query->result_array(); 
     }
 }

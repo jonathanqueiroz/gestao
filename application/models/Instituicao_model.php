@@ -91,6 +91,32 @@ class Instituicao_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function getProfessores2($id)
+    {      
+        //$this->db->select('*');
+        //$this->db->from('professores');
+        //$this->db->join('projeto_colaboradores', 'fk_professor  != id_professor');
+        $query = $this->db->get('professores where id_professor NOT IN (select fk_professor from projeto_colaboradores where fk_professor > 0 and fk_projeto = '.$id.')');
+        return $query->result_array();
+    }
+
+    public function getProfessor_Colab($id, $professor)
+    {
+        $this->db->where('fk_projeto', $id);
+        $this->db->where('fk_professor', $professor);
+        $this->db->select('nome, id_projeto_colaborador, fk_professor, carga_horaria, data_entrada, data_saida, funcao, fk_projeto');
+        $this->db->from('projeto_colaboradores');
+        $this->db->join('professores', 'fk_professor  = id_professor');
+        $query = $this->db->get();
+        return $query->row(); 
+    }
+
+
+    public function getProjetoColabProf($id)
+    {
+        $query = $this->db->get('professores where id_professor IN (select fk_professor from projeto_colaboradores where fk_professor > 0 and fk_projeto = '.$id.')');
+        return $query->result_array(); 
+    }
     public function setDepartamento($id=0)
     {
     	/*$data = array(

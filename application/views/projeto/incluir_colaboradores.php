@@ -47,11 +47,11 @@
 <div class="row">  
     <div id="test-swipe-1" class="col s12 l12">
         <div class="row passo1 form_cadastro form_box">
-            <?php echo form_open('Projeto/colaboradores_projeto/1'); ?>
+            <?php echo form_open('Projeto/colaboradores_projeto/'.$id); ?>
             <div class="col s12">
                 <h4>Cadastrar Colaboradores</h4><br>
             </div>
-            <div class="col s12 l3">
+            <div class="col s12 l4">
                 <label for="professor">Professor: <br></label>
                 <select name="professor" id="">
                     <option value="" disabled selected>Selecione</option>
@@ -60,15 +60,20 @@
                     <?php } ?>
                 </select>
             </div>
+           <div class="col s12 l4 ">
+                <label for="funcao_professor">Função Desempenhada:</label>    
+                <input type="text" name="funcao_professor" placeholder="Função Desempenhada"  />
+            </div>
             <div class="col s12 l3">
                  <label for="professores">Carga Horária do Professor: <br></label>
                  <input type="number" name="carga_professor" placeholder="Carga Horária do Professor" />
             </div>
-            <div class="col s12 l3">
+
+            <div class="col s12 l4">
                  <label for="data_professor">Data de Entrada do Professor: <br></label>
                  <input type="date" name="data_professor" />
             </div>
-            <div class="col s12 l3">
+            <div class="col s12 l4">
                  <label for="data_professor">Data de Saída do Professor: <br></label>
                  <input type="date" name="data_saida_professor" disabled= />
             </div>
@@ -83,11 +88,11 @@
 
     <div id="test2" class="col s12 l12">
         <div class="row passo1 form_cadastro form_box">
-            <?php echo form_open('Projeto/colaboradores_projeto/2'); ?>
+            <?php echo form_open('Projeto/colaboradores_projeto/'.$id); ?>
             <div class="col s12">
                 <h4>Cadastrar Colaboradores</h4><br>
             </div>
-            <div class="col s12 l3">
+            <div class="col s12 l4">
                 <label for="bolsita">Bolsita: <br></label>
                 <select  name="bolsista" id="">
                     <option value="" disabled selected>Selecione</option>
@@ -95,6 +100,10 @@
                         <option value="<?php echo $aluno['id_aluno']; ?>"><?php echo $aluno['nome']; ?></option>
                     <?php } ?>
                 </select>
+            </div>
+            <div class="col s12 l4 ">
+                <label for="funcao_bolsista">Função Desempenhada:</label>    
+                <input type="text" name="funcao_bolsista" placeholder="Função Desempenhada"  />
             </div>
             <div class="col s12 l3">
                  <label for="carga_bolsista">Carga Horária do Bolsita: <br></label>
@@ -118,11 +127,11 @@
     </div>
     <div id="test3" class="col s12 l12">
         <div class="row passo1 form_cadastro form_box">
-            <?php echo form_open('Projeto/colaboradores_projeto/3'); ?>
+            <?php echo form_open('Projeto/colaboradores_projeto/'.$id); ?>
             <div class="col s12">
                 <h4>Cadastrar Colaboradores</h4><br>
             </div>
-            <div class="col s12 l3">
+            <div class="col s12 l4">
                 <label for="voluntario">Voluntário: <br></label>
                 <select name="voluntario" id="">
                     <option value="" disabled selected>Selecione</option>
@@ -130,6 +139,10 @@
                         <option value="<?php echo $voluntario['id_aluno']; ?>"><?php echo $voluntario['nome']; ?></option>
                     <?php } ?>
                 </select>
+            </div>
+            <div class="col s12 l4 ">
+                <label for="funcao_voluntario">Função Desempenhada:</label>    
+                <input type="text" name="funcao_voluntario" placeholder="Função Desempenhada"  />
             </div>
             <div class="col s12 l3">
                  <label for="carga_voluntario">Carga Horária do Voluntário: <br></label>
@@ -152,5 +165,6 @@
             <?php echo form_close(); ?>
         </div>
     </div>
+    <p style="margin-left: 60px;"><a class="btn-floating btn-large waves-effect waves-light red" href="<?php echo site_url('projeto'); ?>"><i class="material-icons">arrow_back</i></a></p>
 </div>
 

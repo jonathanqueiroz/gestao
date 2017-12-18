@@ -5,7 +5,7 @@
 </style> 
 <div class="">
 <div class="row">
-	<h4 style="text-align: center;">Jovens</h4>
+	<h4 style="text-align: center;">Alunos / Bolsistas</h4>
 	<div class="col s12 l10 push-l1">
 		<nav>
 			<div class="nav-wrapper blue">

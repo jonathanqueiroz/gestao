@@ -89,3 +89,4 @@
 		
 		<!-- BLOCO 2-->
 <?php form_close(); ?>
+<p style="margin-left: 50px;"><a class="btn-floating btn-large waves-effect waves-light red" href="<?php echo site_url('instituicao'); ?>"><i class="material-icons">arrow_back</i></a></p>

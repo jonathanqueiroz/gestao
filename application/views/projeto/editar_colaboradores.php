@@ -56,14 +56,6 @@
 				<label for="tipo_bolsa">Tipo de Bolsa:</label>	
 				<input type="text" name="tipo_bolsa" placeholder="Tipo de Bolsa" value="<?php echo $colaborador->tipo_bolsa; ?>" />
 			</div>
-			<div class="col s12 l2 " >
-				<label for="periodo_entrada">Periodo de Entrada:</label>	
-				<input type="date" name="periodo_entrada" placeholder="Periodo de Entrada" value="<?php echo $colaborador->periodo_entrada; ?>"  />
-			</div>
-			<div class="col s12 l2 " >
-				<label for="periodo_saida">Periodo de Saída:</label>	
-				<input type="date" name="periodo_saida" placeholder="Periodo de Saída" value="<?php echo $colaborador->periodo_saida; ?>" />
-			</div>
 			<div class="col s12 "></div>
 			<div class="col l12 s12">
 			<br>
@@ -77,3 +69,4 @@
 		
 		<!-- BLOCO 2-->
 <?php form_close(); ?>
+<p style="margin-left: 50px;"><a class="btn-floating btn-large waves-effect waves-light red" href="<?php echo site_url('projeto/alunos'); ?>"><i class="material-icons">arrow_back</i></a></p>

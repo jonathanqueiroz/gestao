@@ -37,7 +37,7 @@
                             Data de Criação: <?php ?><br>
                             Última Atualização: <?php ?><br>
                             <a href="<?php echo base_url('instituicao/visualizar/'.$professor['id_professor']); ?>">Visualizar</a><br> 
-                            <a href="<?php echo site_url('instituicao/editar/'.$professor['id_professor']); ?>">Editar</a><br>
+                            <a href="<?php echo site_url('instituicao/atualizarProfessor/'.$professor['id_professor']); ?>">Editar</a><br>
                             <a href="<?php echo site_url('instituicao/apagar/'.$professor['id_professor']); ?>" onClick="return confirm('Tem certeza que deseja apagar o usúario?')">Apagar</a><br>
                             </div>
                         </div>

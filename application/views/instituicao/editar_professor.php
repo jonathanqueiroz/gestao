@@ -4,7 +4,7 @@
   });
 </script>
 <?php // echo form_open('Pessoa/dados_adolescente'); ?>
-<form action="<?php echo base_url('Instituicao/atualizarProfessor/'.$id); ?>" method="post">
+<form action="<?php echo base_url('instituicao/atualizarProfessor/'.$id); ?>" method="post">
 	<?php echo validation_errors(); ?>
 	<div class="row passo1 form_cadastro form_box">
 			<br>
@@ -104,3 +104,4 @@
 		
 		<!-- BLOCO 2-->
 <?php form_close(); ?>
+<p style="margin-left: 50px;"><a class="btn-floating btn-large waves-effect waves-light red" href="<?php echo site_url('instituicao/professores'); ?>"><i class="material-icons">arrow_back</i></a></p>

@@ -36,7 +36,8 @@
                         </div>
                             <div class="col s6">
                             <p>
-                            <a href="<?php echo base_url('projeto/colaboradores_projeto/'.$projeto_item['id_projeto']); ?>">Adicionar Colaboradores</a><br> 
+                            <a href="<?php echo base_url('projeto/colaboradores_projeto/'.$projeto_item['id_projeto']); ?>">Adicionar Colaboradores</a><br>
+                            <a href="<?php echo base_url('projeto/editar_colaboradores_projeto/'.$projeto_item['id_projeto']); ?>">Editar Colaboradores</a><br>  
                             <a href="<?php echo base_url('projeto/visualizar/'.$projeto_item['id_projeto']); ?>">Visualizar Dados</a><br> 
                             <a href="<?php echo site_url('projeto/editar/'.$projeto_item['id_projeto']); ?>">Editar Informações</a><br>
                             <a href="<?php echo site_url('projeto/apagar/'.$projeto_item['id_projeto']); ?>" onClick="return confirm('Tem certeza que deseja apagar o usúario?')">Apagar Projeto</a><br>
@@ -66,6 +67,7 @@
                                 <div class="col s6">
                                     <p>
                                     <a href="<?php echo base_url('projeto/colaboradores_projeto/'.$projeto_item['id_projeto']); ?>">Adicionar Colaboradores</a><br> 
+                                    <a href="<?php echo base_url('projeto/editar_colaboradores_projeto/'.$projeto_item['id_projeto']); ?>">Editar Colaboradores</a><br>
                                     <a href="<?php echo base_url('projeto/visualizar/'.$projeto_item['id_projeto']); ?>">Visualizar Dados</a><br> 
                                     <a href="<?php echo site_url('projeto/editar/'.$projeto_item['id_projeto']); ?>">Editar Informações</a><br>
                                     <a href="<?php echo site_url('projeto/apagar/'.$projeto_item['id_projeto']); ?>" onClick="return confirm('Tem certeza que deseja apagar o usúario?')">Apagar Projeto</a><br></p>

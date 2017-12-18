@@ -51,4 +51,5 @@
     <div id="test6" class="col s12 l12"><?php if($tab && $form5 != NULL){ if(isset($form6) && $form6 != NULL){ $this->load->view('Pessoa/edit/edit6'); } else {$this->load->view('Pessoa/create/passo6'); }}?></div>
     <div id="test7" class="col s12 l12"><?php if($tab && $form6 != NULL){ if(isset($form7) && $form7 != NULL){ $this->load->view('Pessoa/edit/edit7'); } else {$this->load->view('Pessoa/create/passo7'); }}?></div>
   </div>
+  <p style="margin-left: 50px;"><a class="btn-floating btn-large waves-effect waves-light red" href="<?php echo site_url('pessoa/jovens'); ?>"><i class="material-icons">arrow_back</i></a></p>
 
